@@ -9,7 +9,7 @@ import { factions } from "../model/Factions";
 
 const Navbar: NextPage = () => {
   const [trainerName, setTrainerName] = useState("");
-  const [squadName, setSquadName] = useState("");
+  const [squadName, setSquadName] = useState("default");
   const [trainerData, setTrainerData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [squadData, setSquadData] = useState([]);
@@ -53,11 +53,11 @@ const Navbar: NextPage = () => {
             <option value="default" selected disabled hidden>
               Choose a Team
             </option>
-            {/*
+            
             {Object.keys(factions).map((key) => (
-              <option value={key}>{factions[key]}</option>
+              <option key={key} value={key}>{factions[key]}</option>
             ))}
-            */}
+            
           </Select>
           <Button
             ml="5px"
