@@ -8,13 +8,13 @@ import { useState } from "react";
 import { factions } from "../model/Factions";
 
 const Navbar: NextPage = () => {
-  const [trainerName, setTrainerName] = useState("");
+  const [trainerName, setTrainerName] = useState(""); 
   const [squadName, setSquadName] = useState("default");
   const [trainerData, setTrainerData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [squadData, setSquadData] = useState([]);
 
-  const loadPeople = async () => {
+  const loadTrainerData = async () => {
     setLoading(true);
     const req = await fetch(`/api/player/${trainerName}`);
     const json = await req.json();
@@ -22,7 +22,7 @@ const Navbar: NextPage = () => {
     setLoading(false);
   };
 
-  const loadSquad = async () => {
+  const loadSquadData = async () => {
     setLoading(true);
     const req = await fetch(`/api/squad/${squadName}`);
     const json = await req.json();
@@ -68,7 +68,7 @@ const Navbar: NextPage = () => {
               background: "white",
               color: "black",
             }}
-            onClick={() => loadSquad()}
+            onClick={() => loadSquadData()}
           >
             Load Team
           </Button>
@@ -90,13 +90,14 @@ const Navbar: NextPage = () => {
               background: "white",
               color: "black",
             }}
-            onClick={() => loadPeople()}
+            onClick={() => loadTrainerData()}
             id="pbtn"
           >
             Load Player
           </Button>
         </Flex>
       </HStack>
+      {loading && <Flex>Loading...</Flex>}
     </>
   );
 };
