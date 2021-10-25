@@ -4,11 +4,13 @@ import { Select } from "@chakra-ui/select";
 import { Button } from "@chakra-ui/button";
 import { Input } from "@chakra-ui/input";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 import { factions } from "../model/Factions";
 
 const Navbar: NextPage = () => {
-  const [trainerName, setTrainerName] = useState(""); 
+  const router = useRouter();
+  const [trainerName, setTrainerName] = useState("");
   const [squadName, setSquadName] = useState("default");
   const [trainerData, setTrainerData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -53,11 +55,12 @@ const Navbar: NextPage = () => {
             <option value="default" selected disabled hidden>
               Choose a Team
             </option>
-            
+
             {Object.keys(factions).map((key) => (
-              <option key={key} value={key}>{factions[key]}</option>
+              <option key={key} value={key}>
+                {factions[key]}
+              </option>
             ))}
-            
           </Select>
           <Button
             ml="5px"
@@ -90,7 +93,7 @@ const Navbar: NextPage = () => {
               background: "white",
               color: "black",
             }}
-            onClick={() => loadTrainerData()}
+            onClick={() => router.push(`/trainer/${trainerName}`)}
             id="pbtn"
           >
             Load Player
