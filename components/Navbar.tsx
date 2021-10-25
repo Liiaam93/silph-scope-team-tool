@@ -3,7 +3,7 @@ import { HStack, Text, Flex } from "@chakra-ui/layout";
 import { Select } from "@chakra-ui/select";
 import { Button } from "@chakra-ui/button";
 import { Input } from "@chakra-ui/input";
-import { Key, useState } from "react";
+import { useState } from "react";
 
 import { factions } from "../model/Factions";
 

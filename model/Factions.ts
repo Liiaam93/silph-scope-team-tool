@@ -1,7 +1,7 @@
 export interface faction {
-  key: string;
+  [key: string]: string;
 }
-export const factions = {
+export const factions: faction = {
   "9a4b1b632b": "AFRICAN SCATTERLING",
   "0118d41b9d": "ALTERED MINDS.",
   "4c84e64b2a": "AMARETTO RIOJA",
