@@ -1,5 +1,7 @@
-export interface Team {
-  name: string;
+export interface Tournament {
+  league: string;
+  bout: string;
+  role: string;
   wins: number;
   losses: number;
   pokemon: Pokemon[];
@@ -8,5 +10,5 @@ export interface Team {
 export interface Pokemon {
   name: string;
   image: string;
-  moves: string[];
+  moves?: string[];
 }

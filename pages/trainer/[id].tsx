@@ -1,31 +1,27 @@
 import { NextPage } from "next";
 import Navbar from "../../components/Navbar";
-import { Flex, Text } from "@chakra-ui/layout";
+import { Flex } from "@chakra-ui/layout";
 import { GetServerSideProps } from "next";
-import { GetServerSidePropsContext } from "next";
-import { Button } from "@chakra-ui/button";
-import { Image } from "@chakra-ui/image";
+import { Tournament } from "../../types";
 
-const Details: NextPage = ({ data }) => {
+const Details: NextPage<Props> = ({ tournaments }) => {
+  console.log(tournaments);
   return (
     <>
       <Navbar />
-      <Flex pt="15%">
-        <Image src={data.data.avatar} />
-        <Text>{data.data.in_game_username}</Text>
-      </Flex>
     </>
   );
 };
-type Data = {};
+type Props = {
+  tournaments: Tournament[];
+};
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   console.log(context.query.id);
   const trainerName = context.query.id?.toString();
-  const res = await fetch(`https://sil.ph/${trainerName}.json`);
-  const data: any = await res.json();
-  console.log(data);
+  const res = await fetch(`http://localhost:3000/api/trainer/${trainerName}`);
+  const tournaments: any = await res.json();
 
-  return { props: { data } };
+  return { props: { tournaments } };
 };
 export default Details;
