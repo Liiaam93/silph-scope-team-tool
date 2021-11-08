@@ -9,9 +9,10 @@ import TeamsContainer from "../../components/TeamsContainer";
 const UserPage: NextPage<Props> = ({ tournaments }) => {
   return (
     <>
-      <Box bg="grey">
+      <Navbar />
+      <Box bg="grey" pt="30px">
         {tournaments.map((tournament: Tournament, index: number) => (
-          <TeamsContainer key={tournament.league} {...tournament} />
+          <TeamsContainer key={tournament.league + index} {...tournament} />
         ))}
       </Box>
     </>
