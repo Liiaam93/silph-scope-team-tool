@@ -1,7 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { Tournament } from "../../../types";
 import { fetchUserTournaments } from "../../utils/scrape/silph";
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const details: Tournament[] = await fetchUserTournaments(
       req.query.id as string
@@ -11,3 +12,4 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   } finally {
   }
 };
+export default handler;

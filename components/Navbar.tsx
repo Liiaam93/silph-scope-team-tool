@@ -48,11 +48,11 @@ const Navbar: NextPage = () => {
         </Text>
         <Flex w="xl" pb="5px">
           <Select
-            value={squadName}
             onChange={(e) => setSquadName(e.target.value)}
             bg="#F0F8FF"
+            defaultValue={"default"}
           >
-            <option value="default" selected disabled hidden>
+            <option value="default" disabled>
               Choose a Team
             </option>
 
