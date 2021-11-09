@@ -1,4 +1,4 @@
-import { Flex, Text, Box } from "@chakra-ui/layout";
+import { Flex, Text } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/react";
 import { FunctionComponent } from "react";
 
@@ -31,6 +31,8 @@ const TrainerContainer: FunctionComponent<TrainerData> = ({
 
         <Flex flexDir="column" alignSelf="flex-start" pl="5px">
           <Text fontSize="2xl">{trainerData.playerName}</Text>
+          <Text>Win Rate:</Text>
+          <Text>{trainerData.winRate}%</Text>
         </Flex>
       </Flex>
     </>

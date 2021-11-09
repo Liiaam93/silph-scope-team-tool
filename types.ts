@@ -16,4 +16,5 @@ export interface Pokemon {
 export interface TrainerData {
   playerName: string;
   avatar: string;
+  winRate: number;
 }

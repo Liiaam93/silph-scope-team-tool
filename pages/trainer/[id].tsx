@@ -9,14 +9,16 @@ import TrainerContainer from "../../components/TrainerContainer";
 import { fetchTrainerData } from "../utils/scrape/silph-trainer-data";
 
 const UserPage: NextPage<Props> = ({ tournaments, trainerData }) => {
-  console.log(trainerData);
   return (
     <>
       <Navbar />
       <Box bg="grey" pt="15vh">
         <TrainerContainer {...trainerData} />
         {tournaments.map((tournament: Tournament, index: number) => (
-          <TeamsContainer key={tournament.league + index} {...tournament} />
+          <TeamsContainer
+            key={tournament.bout + tournament.league}
+            {...tournament}
+          />
         ))}
       </Box>
     </>
