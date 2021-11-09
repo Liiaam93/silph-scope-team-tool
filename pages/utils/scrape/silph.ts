@@ -23,7 +23,31 @@ export const fetchUserTournaments = async (
       .find(".pokemon")
       .toArray()
       .map((el: Element) => {
-        const name: string = $(el).attr("title") || "";
+        let name: string = ($(el).attr("title") || "")
+          .replace(" (Altered Forme)", "_Altered")
+          .replace(" (Normal)", "")
+          .replace(" (Trash Cloak)", "_Trash")
+          .replace(" (Sandy Cloak)", "_Sandy")
+          .replace(" (Plant Cloak)", "_Plant")
+          .replace(" (Therian forme)", "_Therian")
+          .replace(" (Origin Forme)", "_Origin");
+
+        if (name.includes("Galarian")) {
+          let len = name.length;
+          name = name.slice(9, len);
+          name = name + "_Galarian";
+        } else if (name.includes("Alolan")) {
+          let len = name.length;
+          name = name.slice(7, len);
+          name = name + "_Alolan";
+        } else if (name.includes("Armored")) {
+          let len = name.length;
+          name = name.slice(8, len);
+          name = name + "_Armored";
+        } else if (name === "Darmanitan") {
+          name += "_Standard";
+        }
+
         const image: string = $(el).find("img").attr("src") || "";
         return { name, image };
       });

@@ -10,7 +10,7 @@ const UserPage: NextPage<Props> = ({ tournaments }) => {
   return (
     <>
       <Navbar />
-      <Box bg="grey" pt="30px">
+      <Box bg="grey" pt="15vh">
         {tournaments.map((tournament: Tournament, index: number) => (
           <TeamsContainer key={tournament.league + index} {...tournament} />
         ))}
