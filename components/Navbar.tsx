@@ -44,7 +44,7 @@ const Navbar: NextPage = () => {
         p="5px"
       >
         <Text color="gold" m="auto">
-          Silph Team Finder
+          Silph Scope
         </Text>
         <Flex w="xl" pb="5px">
           <Select

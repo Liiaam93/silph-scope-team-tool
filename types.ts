@@ -12,3 +12,8 @@ export interface Pokemon {
   image: string;
   moves?: string[];
 }
+
+export interface TrainerData {
+  playerName: string;
+  avatar: string;
+}

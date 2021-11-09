@@ -1,4 +1,3 @@
-import axios from "axios"; // read docs...
 import cheerio, { Element } from "cheerio";
 import { Pokemon, Tournament } from "../../../types";
 
