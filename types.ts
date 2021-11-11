@@ -18,3 +18,20 @@ export interface TrainerData {
   avatar: string;
   winRate: number;
 }
+
+export interface TeamStats {
+  squadName: string;
+  logo: string;
+  winLoss: string;
+}
+export interface PlayerStats {
+  name: string[];
+  role: string[];
+  score: string[];
+  matches: string[];
+  totalBattles: number[];
+}
+export interface SquadData {
+  teamStats: TeamStats[];
+  playerStats: PlayerStats[];
+}

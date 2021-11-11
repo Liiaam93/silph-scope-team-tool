@@ -20,17 +20,22 @@ const TeamsContainer: FunctionComponent<Tournament> = ({ ...tournament }) => {
           <Text fontSize="xl">{tournament.league}</Text>
           <Text>{tournament.bout}</Text>
         </Box>
-        <Flex wrap="wrap" w="auto" m="auto" justify="center">
+        <Flex
+          key={tournament.bout}
+          wrap="wrap"
+          w="auto"
+          m="auto"
+          justify="center"
+        >
           {tournament.pokemon.map((pokemon: Pokemon, index: number) => (
             <>
               <PokemonContainer key={index + 1} {...pokemon} />
             </>
           ))}
         </Flex>
-        <Text align="center">
-          {tournament.wins && "Score: "}
-          {tournament.wins && tournament.wins + "-" + (3 - tournament.wins)}
-        </Text>
+        <Text align="center">{`Score:
+        
+         ${tournament.wins} -  ${tournament.losses}`}</Text>
       </Box>
     </>
   );
