@@ -19,19 +19,16 @@ export interface TrainerData {
   winRate: number;
 }
 
-export interface TeamStats {
-  squadName: string;
+export interface PlayerStats {
+  name: string;
+  role: string;
+  score: string;
+  matches: string;
+  totalBattles: number;
+}
+export interface SquadStats {
+  teamName: string;
   logo: string;
   winLoss: string;
-}
-export interface PlayerStats {
-  name: string[];
-  role: string[];
-  score: string[];
-  matches: string[];
-  totalBattles: number[];
-}
-export interface SquadData {
-  teamStats: TeamStats[];
   playerStats: PlayerStats[];
 }

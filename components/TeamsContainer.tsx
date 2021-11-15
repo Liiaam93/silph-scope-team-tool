@@ -1,9 +1,24 @@
 import { Flex, Text, Box } from "@chakra-ui/layout";
 import { Tournament, Pokemon } from "../types";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import PokemonContainer from "./PokemonContainer";
+import { getMoveData } from "../pages/utils/api/pvpoke";
 
 const TeamsContainer: FunctionComponent<Tournament> = ({ ...tournament }) => {
+  const url = tournament.league.trim();
+
+  const [moves, setMoves] = useState("");
+
+  useEffect(() => {
+    const getMoves = async () => {
+      const req = await fetch(`/api/moves/${url}`);
+      const json = await req.json();
+      setMoves(json);
+    };
+    getMoves();
+    console.log(moves);
+  });
+
   return (
     <>
       <Box
