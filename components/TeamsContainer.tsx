@@ -4,20 +4,33 @@ import { FunctionComponent, useEffect, useState } from "react";
 import PokemonContainer from "./PokemonContainer";
 import { getMoveData } from "../pages/utils/api/pvpoke";
 
-const TeamsContainer: FunctionComponent<Tournament> = ({ ...tournament }) => {
-  const url = tournament.league.trim();
+type Props = {
+  tournament: Tournament;
+  leagueFilter: string;
+};
 
-  const [moves, setMoves] = useState("");
+const TeamsContainer: FunctionComponent<Props> = ({
+  leagueFilter,
+  tournament,
+}) => {
+  const [moves, setMoves] = useState([]);
 
   useEffect(() => {
     const getMoves = async () => {
-      const req = await fetch(`/api/moves/${url}`);
-      const json = await req.json();
-      setMoves(json);
+      if (leagueFilter == "") {
+        let req = await fetch(`/api/moves/Great`);
+        const json = await req.json();
+        setMoves(json);
+      } else {
+        let req = await fetch(`/api/moves/${leagueFilter.trim()}`);
+        const json = await req.json();
+        setMoves(json);
+      }
     };
     getMoves();
-    console.log(moves);
   });
+
+  console.log(moves);
 
   return (
     <>

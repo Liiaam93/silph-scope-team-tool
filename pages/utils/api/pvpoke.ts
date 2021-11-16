@@ -73,7 +73,6 @@ export const getMoveData = async (league: string) => {
       }
     }
 
-    console.log(pokeMap);
     return pokeMap;
   } catch (err: any) {
     console.log(err.message);

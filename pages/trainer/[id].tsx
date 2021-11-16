@@ -1,5 +1,6 @@
 import { NextPage } from "next";
 import Navbar from "../../components/Navbar";
+import { useState } from "react";
 import { Box, Flex } from "@chakra-ui/layout";
 import { GetServerSideProps } from "next";
 import { Tournament, TrainerData } from "../../types";
@@ -7,19 +8,41 @@ import { fetchUserTournaments } from "../utils/scrape/silph";
 import TeamsContainer from "../../components/TeamsContainer";
 import TrainerContainer from "../../components/TrainerContainer";
 import { fetchTrainerData } from "../utils/scrape/silph-trainer-data";
+import { Select } from "@chakra-ui/react";
 
 const UserPage: NextPage<Props> = ({ tournaments, trainerData }) => {
+  const [leagueFilter, setLeagueFilter] = useState("");
+  const [leagueToggle, setLeagueToggle] = useState(false);
+
   return (
     <>
       <Navbar />
       <Box bg="grey" pt="15vh">
         <TrainerContainer {...trainerData} />
-        {tournaments.map((tournament: Tournament, index: number) => (
-          <TeamsContainer
-            key={tournament.bout + tournament.league}
-            {...tournament}
-          />
-        ))}
+
+        <Select
+          w="50%"
+          m="auto"
+          mt="10px"
+          bg="whitesmoke"
+          onChange={(e) => setLeagueFilter(e.target.value)}
+        >
+          <option value="Comet">Comet</option>
+          <option value="Great">Great</option>
+          <option value="Ultra">Ultra</option>
+          <option value="Master">Master</option>
+          <option value="Twilight">Twilight</option>
+        </Select>
+        {tournaments.map(
+          (tournament: Tournament, index: number) =>
+            tournament.league.trim() == leagueFilter.trim() && (
+              <TeamsContainer
+                key={tournament.bout + tournament.league}
+                tournament={tournament}
+                leagueFilter={leagueFilter}
+              />
+            )
+        )}
       </Box>
     </>
   );
