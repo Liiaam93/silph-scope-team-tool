@@ -13,17 +13,24 @@ const FactionMemberContainer: FunctionComponent<PlayerStats> = ({
   return (
     <>
       <Flex
-        m="auto"
-        mt="10px"
-        bg="cadetblue"
-        border="1px solid black"
-        borderRadius="lg"
+        color="black"
+        w="200px"
+        mt="5px"
+        pb="10px"
         flexDir="column"
-        alignItems="center"
-        w="30%"
-        p="10px"
+        mr="5px"
+        border="1px"
+        borderRadius="md"
+        align="center"
+        bg="lightblue"
       >
-        <Button onClick={() => router.push(`/trainer/${playerStats.name}`)}>
+        <Button
+          bg="gold"
+          shadow="outline"
+          mt="5px"
+          mb="10px"
+          onClick={() => router.push(`/trainer/${playerStats.name}`)}
+        >
           {playerStats.name}
         </Button>
         <Text>{playerStats.role}</Text>

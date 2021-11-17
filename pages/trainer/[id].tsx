@@ -17,7 +17,7 @@ const UserPage: NextPage<Props> = ({ tournaments, trainerData }) => {
   return (
     <>
       <Navbar />
-      <Box bg="grey" pt="15vh">
+      <Box bg="grey" pt={["15vh", "10vh"]}>
         <TrainerContainer {...trainerData} />
 
         <Select
@@ -35,7 +35,7 @@ const UserPage: NextPage<Props> = ({ tournaments, trainerData }) => {
         </Select>
         {tournaments.map((tournament: Tournament, index: number) => (
           <TeamsContainer
-            key={tournament.bout + tournament.league}
+            key={tournament.bout + tournament.league + index}
             tournament={tournament}
             leagueFilter={leagueFilter}
           />

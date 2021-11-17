@@ -32,7 +32,7 @@ const FactionContainer: FunctionComponent<SquadStats> = ({
         <Flex flexDir="column" alignSelf="flex-start" pl="5px">
           <Text fontSize="2xl">{factionData.teamName}</Text>
           <Text>Win Rate:</Text>
-          <Text>{factionData.winLoss}%</Text>
+          <Text>{factionData.winLoss}</Text>
         </Flex>
       </Flex>
     </>

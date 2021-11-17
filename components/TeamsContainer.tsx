@@ -13,25 +13,6 @@ const TeamsContainer: FunctionComponent<Props> = ({
   leagueFilter,
   tournament,
 }) => {
-  const [moves, setMoves] = useState([]);
-
-  useEffect(() => {
-    const getMoves = async () => {
-      if (leagueFilter == "") {
-        let req = await fetch(`/api/moves/Great`);
-        const json = await req.json();
-        setMoves(json);
-      } else {
-        let req = await fetch(`/api/moves/${leagueFilter.trim()}`);
-        const json = await req.json();
-        setMoves(json);
-      }
-    };
-    getMoves();
-  });
-
-  console.log(moves);
-
   return (
     <>
       <Box

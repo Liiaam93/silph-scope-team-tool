@@ -14,7 +14,10 @@ export const fetchSquadData = async (faction: string): Promise<SquadStats> => {
     const name: string = $(el).find(" .name p").text() || "";
     const score: string = $(el).find(" .stats .battlesWon").text();
     const matches: string = $(el).find(" .stats .matchesPlayed").text();
-    const role: string = $(el).find(" .specialty h6").text();
+    const role: string = $(el)
+      .find(" .specialty h6")
+      .text()
+      .replace("Specialist", "");
     const totalBattles: number = parseInt(matches) * 3;
 
     return { name, score, matches, role, totalBattles };
