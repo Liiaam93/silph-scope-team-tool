@@ -11,27 +11,10 @@ import { factions } from "../model/Factions";
 const Navbar: NextPage = () => {
   const router = useRouter();
   const [trainerName, setTrainerName] = useState("");
-  const [squadName, setSquadName] = useState("default");
+  const [squadID, setSquadID] = useState("default");
   const [trainerData, setTrainerData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [squadData, setSquadData] = useState([]);
-
-  const loadTrainerData = async () => {
-    setLoading(true);
-    const req = await fetch(`/api/player/${trainerName}`);
-    const json = await req.json();
-    setTrainerData(json);
-    setLoading(false);
-  };
-
-  const loadSquadData = async () => {
-    setLoading(true);
-    const req = await fetch(`/api/squad/${squadName}`);
-    const json = await req.json();
-    setSquadData(json);
-    setLoading(false);
-    setTrainerData([]);
-  };
 
   return (
     <>
@@ -48,7 +31,7 @@ const Navbar: NextPage = () => {
         </Text>
         <Flex w="xl" pb="5px">
           <Select
-            onChange={(e) => setSquadName(e.target.value)}
+            onChange={(e) => setSquadID(e.target.value)}
             bg="#F0F8FF"
             defaultValue={"default"}
           >
@@ -71,7 +54,8 @@ const Navbar: NextPage = () => {
               background: "white",
               color: "black",
             }}
-            onClick={() => loadSquadData()}
+            onClick={() => router.push(`/faction/${squadID}`)}
+            id="pbtn"
           >
             Load Team
           </Button>

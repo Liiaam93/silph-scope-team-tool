@@ -33,16 +33,13 @@ const UserPage: NextPage<Props> = ({ tournaments, trainerData }) => {
           <option value="Master">Master</option>
           <option value="Twilight">Twilight</option>
         </Select>
-        {tournaments.map(
-          (tournament: Tournament, index: number) =>
-            tournament.league.trim() == leagueFilter.trim() && (
-              <TeamsContainer
-                key={tournament.bout + tournament.league}
-                tournament={tournament}
-                leagueFilter={leagueFilter}
-              />
-            )
-        )}
+        {tournaments.map((tournament: Tournament, index: number) => (
+          <TeamsContainer
+            key={tournament.bout + tournament.league}
+            tournament={tournament}
+            leagueFilter={leagueFilter}
+          />
+        ))}
       </Box>
     </>
   );
