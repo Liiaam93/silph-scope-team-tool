@@ -16,7 +16,7 @@ const UserPage: NextPage<Props> = ({ tournaments, trainerData }) => {
 
   return (
     <>
-      <Navbar />
+      <Navbar pb="15vh" />
       <Box bg="grey" pt={["15vh", "10vh"]}>
         <TrainerContainer {...trainerData} />
 
@@ -27,15 +27,15 @@ const UserPage: NextPage<Props> = ({ tournaments, trainerData }) => {
           bg="whitesmoke"
           onChange={(e) => setLeagueFilter(e.target.value)}
         >
-          <option value="Comet">Comet</option>
           <option value="Great">Great</option>
           <option value="Ultra">Ultra</option>
           <option value="Master">Master</option>
+          <option value="Comet">Comet</option>
           <option value="Twilight">Twilight</option>
         </Select>
         {tournaments.map((tournament: Tournament, index: number) => (
           <TeamsContainer
-            key={tournament.bout + tournament.league + index}
+            key={tournament.bout + index.toString()}
             tournament={tournament}
             leagueFilter={leagueFilter}
           />
