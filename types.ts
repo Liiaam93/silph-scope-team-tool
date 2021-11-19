@@ -32,3 +32,21 @@ export interface SquadStats {
   winLoss: string;
   playerStats: PlayerStats[];
 }
+export interface PokemonArray {
+  name?: string;
+  sprite?: string;
+  count?: number;
+}
+export interface Result {
+  tournaments: Tournament[];
+  roster: PokemonArray[];
+}
+export interface PokemonStats {
+  name: string;
+  moveset: string[];
+  score: number;
+  counters: string[];
+  matchups: string[];
+  fastMoves: string[];
+  chargedMoves: string[];
+}

@@ -42,11 +42,8 @@ export const getMoveData = async (league: string) => {
 
     let pLen: number = data.length;
 
-    interface PokeStats {
-      speciedId: PokemonStats[];
-    }
     interface PokemonStats {
-      speciesName: string;
+      name: string;
       moveset: string[];
       score: number;
       counters: string[];
@@ -55,7 +52,7 @@ export const getMoveData = async (league: string) => {
       chargedMoves: string[];
     }
 
-    const pokeMap = [];
+    const pokeMap: PokemonStats[] = [];
     for (let j = 0; j < pLen; j++) {
       const { speciesId, speciesName, moveset, score, counters, matchups } =
         data[j];

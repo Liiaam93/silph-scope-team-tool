@@ -1,9 +1,18 @@
 import cheerio, { Element } from "cheerio";
 import { Pokemon, Tournament } from "../../../types";
+import * as lodash from "lodash";
 
-export const fetchUserTournaments = async (
-  player: string
-): Promise<Tournament[]> => {
+interface PokemonArray {
+  name?: string;
+  sprite?: string;
+  count?: number;
+}
+interface Result {
+  tournaments: Tournament[];
+  roster: PokemonArray[];
+}
+
+export const fetchUserTournaments = async (player: string): Promise<Result> => {
   const req = await fetch("https://thesilphroad.com/card/u/" + player);
   const data: string = await req.text();
   const $ = cheerio.load(data);
@@ -60,5 +69,41 @@ export const fetchUserTournaments = async (
     };
   });
 
-  return tournaments;
+  let pokemonArrays = [];
+  for (let i = 0; i < tournaments.length; i++) {
+    pokemonArrays.push(tournaments[i].pokemon);
+  }
+  const mons = [];
+
+  for (let i = 0; i < pokemonArrays.length; i++) {
+    for (let k = 0; k < pokemonArrays[i].length; k++) {
+      mons.push(pokemonArrays[i][k]);
+    }
+  }
+
+  let pokemonArray: PokemonArray[] = [];
+  for (let i = 0; i < mons.length; i++) {
+    let poke = { name: mons[i].name, sprite: mons[i].image };
+    pokemonArray.push(poke);
+  }
+
+  interface Counts {
+    [pokemonName: string]: number;
+  }
+  const counts: Counts = lodash.countBy(pokemonArray, "name");
+
+  const pokemonWithCount = Object.keys(counts).map((pokemonName) => ({
+    ...pokemonArray.find((pokemon) => pokemon.name === pokemonName),
+    count: counts[pokemonName],
+  }));
+
+  const roster = Object.values(pokemonWithCount).sort(
+    (b, a) => a.count - b.count
+  );
+
+  const result: Result = {
+    tournaments,
+    roster,
+  };
+  return result;
 };

@@ -3,13 +3,19 @@ import { Tournament, Pokemon } from "../types";
 import { FunctionComponent, useEffect, useState } from "react";
 import PokemonContainer from "./PokemonContainer";
 import { getMoveData } from "../pages/utils/api/pvpoke";
+import { Image } from "@chakra-ui/react";
 
 type Props = {
   tournament: Tournament;
   leagueFilter: string;
 };
 
-const TeamsContainer: FunctionComponent<Props> = ({
+interface Roster {
+  name: string[];
+  img: string[];
+}
+
+const TournamentContainer: FunctionComponent<Props> = ({
   leagueFilter,
   tournament,
 }) => {
@@ -48,4 +54,4 @@ const TeamsContainer: FunctionComponent<Props> = ({
     </Box>
   );
 };
-export default TeamsContainer;
+export default TournamentContainer;
