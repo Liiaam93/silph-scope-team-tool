@@ -50,3 +50,9 @@ export interface PokemonStats {
   fastMoves: string[];
   chargedMoves: string[];
 }
+
+export interface Result {
+  tournaments: Tournament[];
+  roster: PokemonArray[];
+  faction: string;
+}

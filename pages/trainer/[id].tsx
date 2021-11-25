@@ -22,7 +22,12 @@ import TrainerContainer from "../../components/TrainerContainer";
 import TournamentContainer from "../../components/TournamentContainer";
 import Roster from "../../components/Roster";
 
-const UserPage: NextPage<Props> = ({ tournaments, trainerData, roster }) => {
+const UserPage: NextPage<Props> = ({
+  tournaments,
+  trainerData,
+  roster,
+  faction,
+}) => {
   const [leagueFilter, setLeagueFilter] = useState("");
   const [leagueToggle, setLeagueToggle] = useState(false);
   const [moves, setMoves] = useState<PokemonStats[]>();
@@ -46,8 +51,9 @@ const UserPage: NextPage<Props> = ({ tournaments, trainerData, roster }) => {
         flexDir="column"
         alignContent="center"
         bgColor="#414141"
+        key={trainerData.playerName}
       >
-        <TrainerContainer {...trainerData} />
+        <TrainerContainer faction={faction} trainerData={trainerData} />
 
         <Select
           w="50%"
@@ -62,7 +68,9 @@ const UserPage: NextPage<Props> = ({ tournaments, trainerData, roster }) => {
           <option value="Comet">Comet</option>
           <option value="Twilight">Twilight</option>
         </Select>
-        <Button w="25%">Click</Button>
+        <Button m="auto" w="25%">
+          Click
+        </Button>
         <Roster {...roster} />
 
         {tournaments.map((tournament: Tournament, index: number) => (
@@ -80,6 +88,7 @@ type Props = {
   tournaments: Tournament[];
   trainerData: TrainerData;
   roster: PokemonArray[];
+  faction: string;
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -88,7 +97,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const data = await fetchUserTournaments(`${trainerName}`);
   const tournaments = data.tournaments;
   const roster = data.roster;
+  const faction = data.faction;
   const trainerData = await fetchTrainerData(`${trainerName}`);
-  return { props: { tournaments, trainerData, roster } };
+  return { props: { tournaments, trainerData, roster, faction } };
 };
 export default UserPage;

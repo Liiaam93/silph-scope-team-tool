@@ -14,6 +14,7 @@ const PokemonContainer: FunctionComponent<Pokemon> = ({ ...pokemon }) => {
         flexDir="column"
         alignItems="center"
         minW="150px"
+        key={pokemon.name}
       >
         <Image
           src={pokemon.image}

@@ -10,6 +10,7 @@ interface PokemonArray {
 interface Result {
   tournaments: Tournament[];
   roster: PokemonArray[];
+  faction: string;
 }
 
 export const fetchUserTournaments = async (player: string): Promise<Result> => {
@@ -22,8 +23,8 @@ export const fetchUserTournaments = async (player: string): Promise<Result> => {
   ).toArray();
 
   const tournaments: Tournament[] = tournamentElements.map((el: Element) => {
-    const league: string = $(el).find(".cupType").text();
-    const bout: string = $(el).find(".tourneyName").text();
+    const league: string = $(el).find(".cupType").text().trim();
+    const bout: string = $(el).find(".tourneyName").text().trim();
     const role: string = $(el).find(".role").text();
     const wins: number = parseInt($(el).find(".win h3").text());
     const losses: number = 3 - wins;
@@ -69,6 +70,8 @@ export const fetchUserTournaments = async (player: string): Promise<Result> => {
     };
   });
 
+  const faction: string = $("#travelerCardWrap > div.card-inner").text();
+
   let pokemonArrays = [];
   for (let i = 0; i < tournaments.length; i++) {
     pokemonArrays.push(tournaments[i].pokemon);
@@ -100,10 +103,12 @@ export const fetchUserTournaments = async (player: string): Promise<Result> => {
   const roster = Object.values(pokemonWithCount).sort(
     (b, a) => a.count - b.count
   );
+  console.log(faction);
 
   const result: Result = {
     tournaments,
     roster,
+    faction,
   };
   return result;
 };

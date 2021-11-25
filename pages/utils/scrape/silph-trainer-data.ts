@@ -13,11 +13,11 @@ export const fetchTrainerData = async (
   let wr: number = 0;
   let lr: number = 0;
 
-  for (let i = 0; i < data.length; i++) {
-    wr = wr + data[i].wins;
+  for (let i = 0; i < data.tournaments.length; i++) {
+    wr = wr + data.tournaments[i].wins;
   }
-  for (let i = 0; i < data.length; i++) {
-    lr = lr + data[i].losses;
+  for (let i = 0; i < data.tournaments.length; i++) {
+    lr = lr + data.tournaments[i].losses;
   }
   const maxPoints: number = wr + lr;
   let winRate = parseFloat(((wr / maxPoints) * 100).toFixed(2));

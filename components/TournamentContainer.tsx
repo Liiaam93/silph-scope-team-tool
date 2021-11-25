@@ -10,11 +10,6 @@ type Props = {
   leagueFilter: string;
 };
 
-interface Roster {
-  name: string[];
-  img: string[];
-}
-
 const TournamentContainer: FunctionComponent<Props> = ({
   leagueFilter,
   tournament,
@@ -44,7 +39,7 @@ const TournamentContainer: FunctionComponent<Props> = ({
       >
         {tournament.pokemon.map((pokemon: Pokemon, index: number) => (
           <>
-            <PokemonContainer key={index + 1} {...pokemon} />
+            <PokemonContainer key={pokemon.name + (index + 1)} {...pokemon} />
           </>
         ))}
       </Flex>
