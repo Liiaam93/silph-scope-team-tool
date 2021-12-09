@@ -28,7 +28,7 @@ const UserPage: NextPage<Props> = ({
   roster,
   faction,
 }) => {
-  const [leagueFilter, setLeagueFilter] = useState("");
+  const [leagueFilter, setLeagueFilter] = useState("Comet");
   const [leagueToggle, setLeagueToggle] = useState(false);
   const [moves, setMoves] = useState<PokemonStats[]>();
 
@@ -68,9 +68,6 @@ const UserPage: NextPage<Props> = ({
           <option value="Comet">Comet</option>
           <option value="Twilight">Twilight</option>
         </Select>
-        <Button m="auto" w="25%">
-          Click
-        </Button>
         <Roster {...roster} />
 
         {tournaments.map((tournament: Tournament, index: number) => (

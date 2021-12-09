@@ -70,7 +70,8 @@ export const fetchUserTournaments = async (player: string): Promise<Result> => {
     };
   });
 
-  const faction: string = $("#travelerCardWrap > div.card-inner").text();
+  const faction: string = $("#arenaView").find("a.myTeam").attr("href") || "";
+  console.log(faction);
 
   let pokemonArrays = [];
   for (let i = 0; i < tournaments.length; i++) {

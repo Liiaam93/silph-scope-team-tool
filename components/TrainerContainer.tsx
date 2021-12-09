@@ -50,7 +50,7 @@ const TrainerContainer: FunctionComponent<TrainerStats> = ({
           >
             {trainerData.winRate}%
           </Text>
-          <Text>{faction}+</Text>
+          <Text>{faction}</Text>
         </Flex>
       </Flex>
     </>
