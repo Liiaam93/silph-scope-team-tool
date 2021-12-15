@@ -1,12 +1,10 @@
 import { NextPage } from "next";
 import { useEffect, useState } from "react";
 import { Box, Flex, Text } from "@chakra-ui/layout";
-import { Image } from "@chakra-ui/react";
 import { GetServerSideProps } from "next";
 import { Select } from "@chakra-ui/react";
-import { Button } from "@chakra-ui/button";
 import { get } from "lodash";
-
+import { atom, useRecoilState, selector } from "recoil";
 import {
   Tournament,
   TrainerData,
@@ -15,12 +13,11 @@ import {
 } from "../../types";
 import { fetchUserTournaments } from "../utils/scrape/silph";
 import { fetchTrainerData } from "../utils/scrape/silph-trainer-data";
-import { getMoveData } from "../utils/api/pvpoke";
-
 import Navbar from "../../components/Navbar";
 import TrainerContainer from "../../components/TrainerContainer";
 import TournamentContainer from "../../components/TournamentContainer";
 import Roster from "../../components/Roster";
+import { leagueFilterState } from "../../atoms";
 
 const UserPage: NextPage<Props> = ({
   tournaments,
@@ -28,25 +25,14 @@ const UserPage: NextPage<Props> = ({
   roster,
   faction,
 }) => {
-  const [leagueFilter, setLeagueFilter] = useState("Comet");
-  const [leagueToggle, setLeagueToggle] = useState(false);
-  const [moves, setMoves] = useState<PokemonStats[]>();
-
-  useEffect(() => {
-    if (leagueFilter === "") return;
-    const getMoves = async () => {
-      const req = await getMoveData(leagueFilter);
-      setMoves(req);
-      setLeagueToggle(true);
-    };
-    getMoves();
-  }, [leagueFilter]);
+  const [leagueFilter, setLeagueFilter] =
+    useRecoilState<string>(leagueFilterState);
 
   return (
     <>
       <Navbar />
       <Flex
-        pt="15vh"
+        pt={["20vh", "10vh"]}
         minHeight="100vh"
         flexDir="column"
         alignContent="center"
@@ -61,22 +47,28 @@ const UserPage: NextPage<Props> = ({
           mt="10px"
           bg="whitesmoke"
           onChange={(e) => setLeagueFilter(e.target.value)}
+          defaultValue={""}
+          placeholder="All Leagues"
         >
-          <option value="Great">Great</option>
-          <option value="Ultra">Ultra</option>
-          <option value="Master">Master</option>
+          <option value="Great League">Great League</option>
+          <option value="Ultra League">Ultra League</option>
+          <option value="Master League">Master League</option>
           <option value="Comet">Comet</option>
           <option value="Twilight">Twilight</option>
         </Select>
         <Roster {...roster} />
 
-        {tournaments.map((tournament: Tournament, index: number) => (
-          <TournamentContainer
-            key={tournament.bout + index.toString()}
-            tournament={tournament}
-            leagueFilter={leagueFilter}
-          />
-        ))}
+        {tournaments
+          .filter(({ league }) => {
+            if (!leagueFilter.trim()) return true;
+            return league === leagueFilter;
+          })
+          .map((t: Tournament, index: number) => (
+            <TournamentContainer
+              key={t.league + t.bout + index}
+              tournament={t}
+            />
+          ))}
       </Flex>
     </>
   );
@@ -94,8 +86,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const data = await fetchUserTournaments(`${trainerName}`);
   const tournaments = data.tournaments;
   const roster = data.roster;
-  const faction = data.faction;
   const trainerData = await fetchTrainerData(`${trainerName}`);
-  return { props: { tournaments, trainerData, roster, faction } };
+  return { props: { tournaments, trainerData, roster } };
 };
 export default UserPage;

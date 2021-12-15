@@ -10,7 +10,6 @@ interface PokemonArray {
 interface Result {
   tournaments: Tournament[];
   roster: PokemonArray[];
-  faction: string;
 }
 
 export const fetchUserTournaments = async (player: string): Promise<Result> => {
@@ -23,7 +22,14 @@ export const fetchUserTournaments = async (player: string): Promise<Result> => {
   ).toArray();
 
   const tournaments: Tournament[] = tournamentElements.map((el: Element) => {
-    const league: string = $(el).find(".cupType").text().trim();
+    const league: string = $(el)
+      .find(".cupType")
+      .text()
+      .trim()
+      .replace("Open", "")
+      .replace("v1", "")
+      .trim();
+
     const bout: string = $(el).find(".tourneyName").text().trim();
     const role: string = $(el).find(".role").text();
     const wins: number = parseInt($(el).find(".win h3").text());
@@ -38,7 +44,8 @@ export const fetchUserTournaments = async (player: string): Promise<Result> => {
           .replace(" (Trash Cloak)", "_Trash")
           .replace(" (Sandy Cloak)", "_Sandy")
           .replace(" (Plant Cloak)", "_Plant")
-          .replace(" (Therian forme)", "_Therian")
+          .replace(" (Hero of Many Battles)", "_Hero")
+          .replace(" (Therian Forme)", "_Therian")
           .replace(" (Origin Forme)", "_Origin");
 
         if (name.includes("Galarian")) {
@@ -58,6 +65,11 @@ export const fetchUserTournaments = async (player: string): Promise<Result> => {
         }
 
         const image: string = $(el).find("img").attr("src") || "";
+        const shadow = $(el).find(".shadow").attr("src") || "";
+        if (shadow !== "") {
+          name += "_Shadow";
+        }
+
         return { name, image };
       });
     return {
@@ -70,8 +82,8 @@ export const fetchUserTournaments = async (player: string): Promise<Result> => {
     };
   });
 
-  const faction: string = $("#arenaView").find("a.myTeam").attr("href") || "";
-  console.log(faction);
+  // const faction: string = $("#arenaView").find("a.myTeam").attr("href") || "";
+  // console.log(faction);
 
   let pokemonArrays = [];
   for (let i = 0; i < tournaments.length; i++) {
@@ -104,12 +116,10 @@ export const fetchUserTournaments = async (player: string): Promise<Result> => {
   const roster = Object.values(pokemonWithCount).sort(
     (b, a) => a.count - b.count
   );
-  console.log(faction);
 
   const result: Result = {
     tournaments,
     roster,
-    faction,
   };
   return result;
 };

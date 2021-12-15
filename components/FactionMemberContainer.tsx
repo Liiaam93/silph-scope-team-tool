@@ -15,6 +15,7 @@ const FactionMemberContainer: FunctionComponent<PlayerStats> = ({
       <Flex
         color="black"
         w="200px"
+        maxW="45vw"
         mt="5px"
         pb="10px"
         flexDir="column"
@@ -33,10 +34,21 @@ const FactionMemberContainer: FunctionComponent<PlayerStats> = ({
         >
           {playerStats.name}
         </Button>
-        <Text>{playerStats.role}</Text>
-        <Text>{playerStats.score}</Text>
-        <Text>{playerStats.matches}</Text>
-        <Text>{playerStats.totalBattles}</Text>
+        <Text color="grey">Role</Text>
+        <Text m="5px" mt="0px" textAlign="center">
+          {playerStats.role} {playerStats.role !== "Alternate" && "Specialist"}
+        </Text>{" "}
+        <Text color="grey">Bouts Played</Text>
+        <Text textAlign="center">{playerStats.matches}</Text>
+        <Text color="grey">Points Earned</Text>
+        <Text textAlign="center">{playerStats.score}</Text>
+        <Text color="grey">Win Rate</Text>
+        <Text>
+          {(
+            (parseInt(playerStats.score) / playerStats.totalBattles) *
+            100
+          ).toFixed(2) + "%"}
+        </Text>
       </Flex>
     </>
   );

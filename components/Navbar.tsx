@@ -5,13 +5,16 @@ import { Button } from "@chakra-ui/button";
 import { Input } from "@chakra-ui/input";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { useRecoilState } from "recoil";
 
 import { factions } from "../model/Factions";
+import { trainerNameState } from ".././atoms";
+import { factionNameState } from ".././atoms";
 
 const Navbar: NextPage = () => {
   const router = useRouter();
-  const [trainerName, setTrainerName] = useState("");
-  const [squadID, setSquadID] = useState("default");
+  const [trainerName, setTrainerName] = useRecoilState(trainerNameState);
+  const [squadID, setSquadID] = useRecoilState(factionNameState);
   const [trainerData, setTrainerData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [squadData, setSquadData] = useState([]);

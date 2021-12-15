@@ -4,53 +4,46 @@ import { FunctionComponent, useEffect, useState } from "react";
 import PokemonContainer from "./PokemonContainer";
 import { getMoveData } from "../pages/utils/api/pvpoke";
 import { Image } from "@chakra-ui/react";
+import { atom, useRecoilState } from "recoil";
 
 type Props = {
   tournament: Tournament;
-  leagueFilter: string;
 };
 
-const TournamentContainer: FunctionComponent<Props> = ({
-  leagueFilter,
-  tournament,
-}) => {
-  if (tournament.league === leagueFilter) {
-    return (
-      <Box
-        key={tournament.bout + tournament.league}
-        w="fit-content"
-        maxW="95%"
+const TournamentContainer: FunctionComponent<Props> = ({ tournament }) => {
+  return (
+    <Box
+      key={tournament.bout + tournament.league}
+      w="fit-content"
+      maxW="95%"
+      m="auto"
+      pt="5px"
+      mt="10px"
+      borderWidth="1px"
+      bg="darkgrey"
+      borderRadius="lg"
+    >
+      <Box w="fit-content" m="auto" textAlign="center">
+        <Text fontSize="xl">{tournament.league}</Text>
+        <Text>{tournament.bout}</Text>
+      </Box>
+      <Flex
+        key={tournament.bout}
+        wrap="wrap"
+        w="auto"
         m="auto"
-        pt="5px"
-        mt="10px"
-        borderWidth="1px"
-        bg="darkgrey"
-        borderRadius="lg"
+        justify="center"
       >
-        <Box w="fit-content" m="auto" textAlign="center">
-          <Text fontSize="xl">{tournament.league}</Text>
-          <Text>{tournament.bout}</Text>
-        </Box>
-        <Flex
-          key={tournament.bout}
-          wrap="wrap"
-          w="auto"
-          m="auto"
-          justify="center"
-        >
-          {tournament.pokemon.map((pokemon: Pokemon, index: number) => (
-            <>
-              <PokemonContainer key={pokemon.name + (index + 1)} {...pokemon} />
-            </>
-          ))}
-        </Flex>
-        <Text align="center">{`Score:
+        {tournament.pokemon.map((pokemon: Pokemon, index: number) => (
+          <>
+            <PokemonContainer key={pokemon.name + (index + 1)} {...pokemon} />
+          </>
+        ))}
+      </Flex>
+      <Text align="center">{`Score:
         
          ${tournament.wins} -  ${tournament.losses}`}</Text>
-      </Box>
-    );
-  } else {
-    return <></>;
-  }
+    </Box>
+  );
 };
 export default TournamentContainer;

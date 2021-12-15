@@ -13,7 +13,7 @@ const FactionPage: NextPage<Props> = ({ factionData }) => {
   return (
     <>
       <Navbar />
-      <Box bg="grey" pt={["15vh", "10vh"]}>
+      <Box bg="grey" pt={["20vh", "10vh"]}>
         <FactionContainer {...factionData} />
         <Flex wrap="wrap" maxW="800px" m="auto" justify="center">
           {factionData.playerStats.map((player) => (
