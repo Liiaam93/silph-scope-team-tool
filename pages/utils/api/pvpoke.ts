@@ -1,3 +1,8 @@
+
+
+import fetch from "isomorphic-fetch";
+
+
 export const getMoveData = async (league: string) => {
   let url: string = "";
   let ver: string = "";
@@ -6,7 +11,7 @@ export const getMoveData = async (league: string) => {
     url = "all/overall/rankings-1500";
   } else if (league == "Dungeon") {
     url = "factions/overall/rankings-1500";
-  } else if (league == "Nightfall") {
+  } else if (league == "Nightfall") { 
     url = "nightfall/overall/rankings-1500";
   } else if (league == "Ultra") {
     url = "all/overall/rankings-2500";

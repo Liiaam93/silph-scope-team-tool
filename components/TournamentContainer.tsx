@@ -11,6 +11,7 @@ type Props = {
 };
 
 const TournamentContainer: FunctionComponent<Props> = ({ tournament }) => {
+
   return (
     <Box
       key={tournament.bout + tournament.league}
