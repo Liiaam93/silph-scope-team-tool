@@ -54,5 +54,5 @@ export interface PokemonStats {
 export interface Result {
   tournaments: Tournament[];
   roster: PokemonArray[];
-  faction: string;
+  faction?: string;
 }
