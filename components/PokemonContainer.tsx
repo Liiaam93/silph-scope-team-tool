@@ -16,14 +16,6 @@ import { Twilight } from "../model/PVPoke/Twilight";
 
 const PokemonContainer: FunctionComponent<Pokemon> = ({ ...pokemon }) => {
   const [league, setLeague] = useRecoilState(leagueFilterState);
-  const [moves, setMoves] = useState({});
-
-  useEffect(() => {
-    if (league === "Great League" || league === "Great") {
-      setMoves(Great);
-      console.log(moves);
-    }
-  }, [league]);
 
   return (
     <>
@@ -49,6 +41,9 @@ const PokemonContainer: FunctionComponent<Pokemon> = ({ ...pokemon }) => {
           pr="15px"
         />
         <Text>{pokemon.name}</Text>
+        <Text>{pokemon.moves && pokemon.moves[0]}</Text>
+        <Text>{pokemon.moves && pokemon.moves[1]}</Text>
+        <Text>{pokemon.moves && pokemon.moves[2]}</Text>
         {/* 
         {league && (
           <>

@@ -10,7 +10,7 @@ export interface Tournament {
 export interface Pokemon {
   name: string;
   image: string;
-  moves?: string[];
+  moves?: any;
 }
 
 export interface TrainerData {
