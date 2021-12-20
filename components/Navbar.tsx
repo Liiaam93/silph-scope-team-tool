@@ -86,7 +86,6 @@ const Navbar: NextPage = () => {
           </Button>
         </Flex>
       </HStack>
-      {loading && <Flex>Loading...</Flex>}
     </>
   );
 };
