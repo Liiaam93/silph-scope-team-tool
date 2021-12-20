@@ -41,9 +41,9 @@ const PokemonContainer: FunctionComponent<Pokemon> = ({ ...pokemon }) => {
           pr="15px"
         />
         <Text>{pokemon.name}</Text>
-        <Text>{pokemon.moves && pokemon.moves[0]}</Text>
-        <Text>{pokemon.moves && pokemon.moves[1]}</Text>
-        <Text>{pokemon.moves && pokemon.moves[2]}</Text>
+        <Text fontSize='smaller' color='grey.200'>{pokemon.moves && pokemon.moves[0]}</Text>
+        <Text fontSize='smaller' color='grey.200'>{pokemon.moves && pokemon.moves[1]}</Text>
+        <Text fontSize='smaller' color='grey.200'>{pokemon.moves && pokemon.moves[2]}</Text>
         {/* 
         {league && (
           <>
