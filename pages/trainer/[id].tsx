@@ -11,8 +11,8 @@ import {
   PokemonArray,
   PokemonStats,
 } from "../../types";
-import { fetchUserTournaments } from "../utils/scrape/silph";
-import { fetchTrainerData } from "../utils/scrape/silph-trainer-data";
+import { fetchUserTournaments } from "../../utils/scrape/silph";
+import { fetchTrainerData } from "../../utils/scrape/silph-trainer-data";
 import Navbar from "../../components/Navbar";
 import TrainerContainer from "../../components/TrainerContainer";
 import TournamentContainer from "../../components/TournamentContainer";
