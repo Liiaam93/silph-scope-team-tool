@@ -51,7 +51,7 @@ const TournamentContainer: FunctionComponent<Props> = ({ tournament }) => {
       "," +
       moves.find((o) => o.speciesId === pokemon.name.toLowerCase())
         ?.moveset[2] +
-      ","
+      "\n"
   );
 
   return (
