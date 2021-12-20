@@ -94,7 +94,7 @@ const TournamentContainer: FunctionComponent<Props> = ({ tournament }) => {
         
          ${tournament.wins} -  ${tournament.losses}`}</Text>
       <Center>
-        <Button onClick={() => copyPVP(copyArray.toString())} mb="3">
+        <Button onClick={() => copyPVP(copyArray.join(""))} mb="3">
           Copy Team
         </Button>
       </Center>
