@@ -1,16 +1,9 @@
 import { NextPage } from "next";
-import { useEffect, useState } from "react";
 import { Box, Flex, Text } from "@chakra-ui/layout";
 import { GetServerSideProps } from "next";
 import { Select } from "@chakra-ui/react";
-import { get } from "lodash";
 import { atom, useRecoilState, selector } from "recoil";
-import {
-  Tournament,
-  TrainerData,
-  PokemonArray,
-  PokemonStats,
-} from "../../types";
+import { Tournament, TrainerData, PokemonArray } from "../../types";
 import { fetchUserTournaments } from "../../utils/scrape/silph";
 import { fetchTrainerData } from "../../utils/scrape/silph-trainer-data";
 import Navbar from "../../components/Navbar";

@@ -1,5 +1,4 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { Tournament } from "../../../types";
 import { getMoveData } from "../../../utils/api/pvpoke";
 
 type League = "Great" | "Twilight" | "Master" | "Ultra" | "Comet";
