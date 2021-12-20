@@ -1,6 +1,7 @@
-import { Flex, Text, Box } from "@chakra-ui/layout";
+import { Flex, Text, Box, Center } from "@chakra-ui/layout";
 import { Tournament, Pokemon } from "../types";
 import { FunctionComponent, useEffect, useState } from "react";
+import { Button } from "@chakra-ui/button";
 import PokemonContainer from "./PokemonContainer";
 import { Image, useClipboard } from "@chakra-ui/react";
 import { atom, useRecoilState } from "recoil";
@@ -15,25 +16,30 @@ type Props = {
   tournament: Tournament;
 };
 
+const copyPVP = async (copyText: string) => {
+  await navigator.clipboard.writeText(copyText);
+  alert("copied!");
+};
+
 const TournamentContainer: FunctionComponent<Props> = ({ tournament }) => {
   const [moves, setMoves] = useState(Great);
   const [league, setLeague] = useRecoilState(leagueFilterState);
 
   useEffect(() => {
-    if (tournament.league === "Ultra") {
+    if (tournament.league === "Ultra League") {
       setMoves(Ultra);
-    } else if (tournament.league === "Master") {
+    } else if (tournament.league === "Master League") {
       setMoves(Master);
     } else if (tournament.league === "Comet") {
       setMoves(Comet);
     } else if (tournament.league === "Twilight") {
       setMoves(Twilight);
-    } else if (tournament.league === "Great") {
+    } else if (tournament.league === "Great League") {
       setMoves(Great);
     }
   }, [tournament.league]);
 
-  const copyArr = tournament.pokemon.map(
+  const copyArray = tournament.pokemon.map(
     (pokemon: Pokemon, index: number) =>
       pokemon.name +
       "," +
@@ -45,10 +51,7 @@ const TournamentContainer: FunctionComponent<Props> = ({ tournament }) => {
       "," +
       moves.find((o) => o.speciesId === pokemon.name.toLowerCase())?.moveset[2]
   );
-  console.log(copyArr);
-  const copyPVP = () => {
-    useClipboard(copyArr);
-  };
+
   return (
     <Box
       key={tournament.bout + tournament.league}
@@ -88,6 +91,11 @@ const TournamentContainer: FunctionComponent<Props> = ({ tournament }) => {
       <Text align="center">{`Score:
         
          ${tournament.wins} -  ${tournament.losses}`}</Text>
+      <Center>
+        <Button onClick={() => copyPVP(copyArray.toString())} mb="3">
+          Copy Team
+        </Button>
+      </Center>
     </Box>
   );
 };

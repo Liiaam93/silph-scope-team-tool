@@ -40,6 +40,7 @@ export const fetchUserTournaments = async (player: string): Promise<Result> => {
       .map((el: Element) => {
         let name: string = ($(el).attr("title") || "")
           .replace(" (Altered Forme)", "_Altered")
+          .replace(" (Defense Forme)", "_Defense")
           .replace(" (Normal)", "")
           .replace(" (Trash Cloak)", "_Trash")
           .replace(" (Sandy Cloak)", "_Sandy")
@@ -81,30 +82,6 @@ export const fetchUserTournaments = async (player: string): Promise<Result> => {
       pokemon,
     };
   });
-
-  // const leaguePaths = {
-  //   Great: "all/overall/rankings-1500",
-  //   Twilight: "twilightfactions/overall/rankings-1500",
-  //   Master: "all/overall/rankings-10000",
-  //   Ultra: "all/overall/rankings-2500",
-  //   Comet: "factions/overall/rankings-1500",
-  // };
-  // for (let i = 0; i < tournaments.length; i++) {
-  //   let leagueCheck = tournaments[i].league;
-  //   //if (leagueCheck === "Great") {
-  //   let res = await fetch(
-  //     `https://pvpoke.com/data/rankings/${leaguePaths.Great}.json`
-  //   );
-  //   let moveData = await res.json();
-  //   for (let k = 0; k < tournaments[i].pokemon.length; k++) {
-  //     let pname = tournaments[i].pokemon[k].name.toLowerCase();
-  //     let moves = moveData.find((o: any) => o.name === pname);
-  //     console.log(moves?.moveset);
-  //   }
-  // }
-  //}
-  // const faction: string = $("#arenaView").find("a.myTeam").attr("href") || "";
-  // console.log(faction);
 
   let pokemonArrays = [];
   for (let i = 0; i < tournaments.length; i++) {

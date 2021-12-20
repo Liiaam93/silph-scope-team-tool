@@ -16,7 +16,6 @@ const Navbar: NextPage = () => {
   const [trainerName, setTrainerName] = useRecoilState(trainerNameState);
   const [squadID, setSquadID] = useRecoilState(factionNameState);
   const [trainerData, setTrainerData] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [squadData, setSquadData] = useState([]);
 
   return (
