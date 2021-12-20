@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { Result } from "../../../types";
-import { fetchUserTournaments } from "../../utils/scrape/silph";
+import { fetchUserTournaments } from "../../../utils/scrape/silph";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {

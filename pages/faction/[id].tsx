@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Box, Flex, Text } from "@chakra-ui/layout";
 import { GetServerSideProps } from "next";
 import { SquadStats, TrainerData } from "../../types";
-import { fetchSquadData } from "../utils/scrape/silph-factions";
+import { fetchSquadData } from "../../utils/scrape/silph-factions";
 import { Select } from "@chakra-ui/react";
 import FactionContainer from "../../components/FactionContainer";
 import FactionMemberContainer from "../../components/FactionMemberContainer";
