@@ -49,7 +49,9 @@ const TournamentContainer: FunctionComponent<Props> = ({ tournament }) => {
       moves.find((o) => o.speciesId === pokemon.name.toLowerCase())
         ?.moveset[1] +
       "," +
-      moves.find((o) => o.speciesId === pokemon.name.toLowerCase())?.moveset[2]
+      moves.find((o) => o.speciesId === pokemon.name.toLowerCase())
+        ?.moveset[2] +
+      ","
   );
 
   return (
