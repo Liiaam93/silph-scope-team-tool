@@ -1,4 +1,4 @@
-import { TrainerData } from "../../../types";
+import { TrainerData } from "../../types";
 import { fetchUserTournaments } from "./silph";
 
 export const fetchTrainerData = async (

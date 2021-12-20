@@ -1,5 +1,5 @@
 import cheerio, { Element } from "cheerio";
-import { Pokemon, Tournament } from "../../../types";
+import { Pokemon, Tournament } from "../../types";
 import * as lodash from "lodash";
 
 interface PokemonArray {

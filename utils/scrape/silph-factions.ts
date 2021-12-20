@@ -1,5 +1,5 @@
 import cheerio, { Element } from "cheerio";
-import { PlayerStats, SquadStats } from "../../../types";
+import { PlayerStats, SquadStats } from "../../types";
 
 export const fetchSquadData = async (faction: string): Promise<SquadStats> => {
   const req = await fetch("https://silph.gg/faction/" + faction);
