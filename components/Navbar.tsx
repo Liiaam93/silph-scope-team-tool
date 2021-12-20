@@ -6,7 +6,8 @@ import { Input } from "@chakra-ui/input";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
-
+import { Link } from "@chakra-ui/react";
+import NextLink from "next/link";
 import { factions } from "../model/Factions";
 import { trainerNameState } from ".././atoms";
 import { factionNameState } from ".././atoms";
@@ -28,9 +29,11 @@ const Navbar: NextPage = () => {
         w="100%"
         p="5px"
       >
-        <Text color="gold" m="auto">
-          Silph Scope
-        </Text>
+        <NextLink href="/" passHref>
+          <Link color="gold" m="auto">
+            Silph Scope
+          </Link>
+        </NextLink>
         <Flex w="xl" pb="5px">
           <Select
             onChange={(e) => setSquadID(e.target.value)}
