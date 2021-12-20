@@ -2,15 +2,16 @@ import { Flex, Text, Box } from "@chakra-ui/layout";
 import { Tournament, Pokemon } from "../types";
 import { FunctionComponent, useEffect, useState } from "react";
 import PokemonContainer from "./PokemonContainer";
-import { getMoveData } from "../pages/utils/api/pvpoke";
 import { Image } from "@chakra-ui/react";
 import { atom, useRecoilState } from "recoil";
+import { leagueFilterState } from ".././atoms";
 
 type Props = {
   tournament: Tournament;
 };
 
 const TournamentContainer: FunctionComponent<Props> = ({ tournament }) => {
+  const [moves, setMoves] = useState({});
 
   return (
     <Box

@@ -4,25 +4,25 @@ import { FunctionComponent } from "react";
 import React, { useState, useEffect } from "react";
 import { leagueFilterState } from ".././atoms";
 import { atom, useRecoilState, selector } from "recoil";
-import { getMoveData } from './../pages/utils/api/pvpoke';
 import { get } from "lodash";
-
-
 
 import { Image } from "@chakra-ui/react";
 
+import { Great } from "../model/PVPoke/Great";
+import { Ultra } from "../model/PVPoke/Ultra";
+import { Master } from "../model/PVPoke/Master";
+import { Comet } from "../model/PVPoke/Comet";
+import { Twilight } from "../model/PVPoke/Twilight";
+
 const PokemonContainer: FunctionComponent<Pokemon> = ({ ...pokemon }) => {
+  const [league, setLeague] = useRecoilState(leagueFilterState);
   const [moves, setMoves] = useState({});
-  const [league, setLeague] = useRecoilState(leagueFilterState)
 
   useEffect(() => {
-    if (league === "") return;
-    const getMoves = async () => {
-      const req = await getMoveData(league) || '';
-      setMoves(req);
-      console.log(moves)
-    };
-    getMoves();
+    if (league === "Great League" || league === "Great") {
+      setMoves(Great);
+      console.log(moves);
+    }
   }, [league]);
 
   return (
@@ -49,7 +49,7 @@ const PokemonContainer: FunctionComponent<Pokemon> = ({ ...pokemon }) => {
           pr="15px"
         />
         <Text>{pokemon.name}</Text>
-
+        {/* 
         {league && (
           <>
             {get(
@@ -62,8 +62,7 @@ const PokemonContainer: FunctionComponent<Pokemon> = ({ ...pokemon }) => {
               </Text>
             ))}
           </>
-        )}
-
+        )} */}
       </Flex>
     </>
   );
