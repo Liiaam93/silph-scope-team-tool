@@ -6,13 +6,9 @@ import { TrainerData } from "../types";
 
 interface TrainerStats {
   trainerData: TrainerData;
-  faction: string;
 }
 
-const TrainerContainer: FunctionComponent<TrainerStats> = ({
-  trainerData,
-  faction,
-}) => {
+const TrainerContainer: FunctionComponent<TrainerStats> = ({ trainerData }) => {
   return (
     <>
       <Flex
@@ -50,7 +46,6 @@ const TrainerContainer: FunctionComponent<TrainerStats> = ({
           >
             {trainerData.winRate}%
           </Text>
-          <Text>{faction}</Text>
         </Flex>
       </Flex>
     </>

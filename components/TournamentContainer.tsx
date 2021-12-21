@@ -1,16 +1,8 @@
 import { Flex, Text, Box, Center } from "@chakra-ui/layout";
 import { Tournament, Pokemon } from "../types";
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent } from "react";
 import { Button } from "@chakra-ui/button";
 import PokemonContainer from "./PokemonContainer";
-import { Image, useClipboard } from "@chakra-ui/react";
-import { atom, useRecoilState } from "recoil";
-import { leagueFilterState } from ".././atoms";
-import { Great } from "../model/PVPoke/Great";
-import { Ultra } from "../model/PVPoke/Ultra";
-import { Master } from "../model/PVPoke/Master";
-import { Comet } from "../model/PVPoke/Comet";
-import { Twilight } from "../model/PVPoke/Twilight";
 
 type Props = {
   tournament: Tournament;
@@ -22,35 +14,15 @@ const copyPVP = async (copyText: string) => {
 };
 
 const TournamentContainer: FunctionComponent<Props> = ({ tournament }) => {
-  const [moves, setMoves] = useState(Great);
-  const [league, setLeague] = useRecoilState(leagueFilterState);
-
-  useEffect(() => {
-    if (tournament.league === "Ultra League") {
-      setMoves(Ultra);
-    } else if (tournament.league === "Master League") {
-      setMoves(Master);
-    } else if (tournament.league === "Comet") {
-      setMoves(Comet);
-    } else if (tournament.league === "Twilight") {
-      setMoves(Twilight);
-    } else if (tournament.league === "Great League") {
-      setMoves(Great);
-    }
-  }, [tournament.league]);
-
   const copyArray = tournament.pokemon.map(
-    (pokemon: Pokemon, index: number) =>
+    (pokemon: Pokemon) =>
       pokemon.name +
       "," +
-      moves.find((o) => o.speciesId === pokemon.name.toLowerCase())
-        ?.moveset[0] +
+      pokemon.moves[0] +
       "," +
-      moves.find((o) => o.speciesId === pokemon.name.toLowerCase())
-        ?.moveset[1] +
+      pokemon.moves[1] +
       "," +
-      moves.find((o) => o.speciesId === pokemon.name.toLowerCase())
-        ?.moveset[2] +
+      pokemon.moves[2] +
       "\n"
   );
 
@@ -79,14 +51,7 @@ const TournamentContainer: FunctionComponent<Props> = ({ tournament }) => {
       >
         {tournament.pokemon.map((pokemon: Pokemon, index: number) => (
           <>
-            <PokemonContainer
-              key={pokemon.name + (index + 1)}
-              {...pokemon}
-              moves={
-                moves.find((o) => o.speciesId === pokemon.name.toLowerCase())
-                  ?.moveset
-              }
-            />
+            <PokemonContainer key={pokemon.name + (index + 1)} {...pokemon} />
           </>
         ))}
       </Flex>
@@ -94,7 +59,15 @@ const TournamentContainer: FunctionComponent<Props> = ({ tournament }) => {
         
          ${tournament.wins} -  ${tournament.losses}`}</Text>
       <Center>
-        <Button onClick={() => copyPVP(copyArray.join(""))} mb="3">
+        <Button
+          background="gold"
+          _hover={{
+            background: "white",
+            color: "black",
+          }}
+          onClick={() => copyPVP(copyArray.join(""))}
+          mb="3"
+        >
           Copy Team
         </Button>
       </Center>

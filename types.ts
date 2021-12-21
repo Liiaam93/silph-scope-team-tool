@@ -10,7 +10,7 @@ export interface Tournament {
 export interface Pokemon {
   name: string;
   image: string;
-  moves?: any;
+  moves: string[];
 }
 
 export interface TrainerData {
@@ -33,9 +33,10 @@ export interface SquadStats {
   playerStats: PlayerStats[];
 }
 export interface PokemonArray {
-  name?: string;
-  sprite?: string;
-  count?: number;
+  name: string;
+  sprite: string;
+  count: number;
+  moves: string[];
 }
 export interface Result {
   tournaments: Tournament[];
@@ -55,4 +56,25 @@ export interface Result {
   tournaments: Tournament[];
   roster: PokemonArray[];
   faction?: string;
+}
+
+interface Matchups {
+  opponent?: string;
+  rating?: number;
+  moveId?: string;
+}
+interface Moves {
+  fastMoves: Matchups[];
+  chargedMoves: Matchups[];
+}
+export interface PVPOKE {
+  speciesId: string;
+  speciesName: string;
+  rating: number;
+  matchups: Matchups[];
+  counters: Matchups[];
+  moves: Moves;
+  moveset: string[];
+  score: number;
+  scores: number[];
 }

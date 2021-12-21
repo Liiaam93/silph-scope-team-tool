@@ -1,3 +1,10 @@
+import { PVPOKE } from "../../types";
+import { Great } from "../../model/PVPoke/Great";
+import { Ultra } from "../../model/PVPoke/Ultra";
+import { Master } from "../../model/PVPoke/Master";
+import { Comet } from "../../model/PVPoke/Comet";
+import { Twilight } from "../../model/PVPoke/Twilight";
+
 export interface PokemonStats {
   name: string;
   moveset: string[];
@@ -7,35 +14,61 @@ export interface PokemonStats {
   fastMoves: string[];
   chargedMoves: string[];
 }
-type League = "Great" | "Twilight" | "Master" | "Ultra" | "Comet";
+// type League = "Great" | "Twilight" | "Master" | "Ultra" | "Comet";
 
-const leaguePaths: Record<League, string> = {
-  Great: "all/overall/rankings-1500",
-  Twilight: "twilightfactions/overall/rankings-1500",
-  Master: "all/overall/rankings-10000",
-  Ultra: "all/overall/rankings-2500",
-  Comet: "factions/overall/rankings-1500",
+// const leaguePaths: Record<League, string> = {
+//   Great: Great,
+//   Twilight: Twilight,
+//   Master: Master,
+//   Ultra: Ultra,
+//   Comet: Comet,
+// };
+const leaguePaths = {
+  Great: Great,
+  Twilight: Twilight,
+  Master: Master,
+  Ultra: Ultra,
+  Comet: Comet,
 };
 
-const leagueApiVersion: Partial<Record<League, string>> = {
-  Twilight: "v=1.24.5.9",
-};
+// export const getMoveData = async (league: League): Promise<PokemonStats[]> => {
+export const getMoveData = (league: string) => {
+  // const url: string = leaguePaths[league];
+  // const ver: string = leagueApiVersion[league] || "";
+  // try {
+  //   const req = await fetch(
+  //     `https://pvpoke.com/data/rankings/${url}.json?${ver}`
+  //   );
+  //   const data = await req.json();
 
-export const getMoveData = async (league: League): Promise<PokemonStats[]> => {
-  const url: string = leaguePaths[league];
-  const ver: string = leagueApiVersion[league] || "";
+  // let ob = data.find((o: any) => o.speciesId === pokemonName);
 
-  try {
-    const req = await fetch(
-      `https://pvpoke.com/data/rankings/${url}.json?${ver}`
-    );
+  //const data = leaguePaths[league];
 
-    const data = await req.json();
-
-    // let ob = data.find((o: any) => o.speciesId === pokemonName);
-    return data;
-  } catch (err: any) {
-    console.log(err.message);
-    return [];
+  let data: PVPOKE[] = Great;
+  if (league === "Great") {
+    data = Great;
+  } else if (league === "Ultra") {
+    data = Ultra;
+  } else if (league === "Master") {
+    data = Master;
+  } else if (league === "Comet") {
+    data = Comet;
+  } else if (league === "Twilight") {
+    data = Twilight;
+  } else {
+    data = Great;
   }
+
+  const movedata = data.map((data) => {
+    let name = data.speciesId;
+    let moves = data.moveset;
+
+    return {
+      name,
+      moves,
+    };
+  });
+
+  return movedata;
 };

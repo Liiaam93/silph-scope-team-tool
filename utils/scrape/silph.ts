@@ -1,6 +1,7 @@
 import cheerio, { Element } from "cheerio";
 import { Pokemon, Tournament } from "../../types";
 import * as lodash from "lodash";
+import { getMoveData } from "../api/pvpoke";
 
 interface PokemonArray {
   name?: string;
@@ -71,8 +72,9 @@ export const fetchUserTournaments = async (player: string): Promise<Result> => {
         if (shadow !== "") {
           name += "_Shadow";
         }
+        const moves: string[] = [];
 
-        return { name, image };
+        return { name, image, moves };
       });
     return {
       league,
@@ -83,6 +85,22 @@ export const fetchUserTournaments = async (player: string): Promise<Result> => {
       pokemon,
     };
   });
+  // type League = "Great" | "Twilight" | "Master" | "Ultra" | "Comet";
+  type Moves = {
+    name: string;
+    moves: string[];
+  };
+
+  for (let i = 0; i < tournaments.length; i++) {
+    let league: string = tournaments[i].league || "Great";
+    let moves = getMoveData(league);
+    for (let k = 0; k < tournaments[i].pokemon.length; k++) {
+      const moveArr = moves.find(
+        (o: Moves) => o.name === tournaments[i].pokemon[k].name.toLowerCase()
+      );
+      tournaments[i].pokemon[k].moves = moveArr?.moves || [];
+    }
+  }
 
   let pokemonArrays = [];
   for (let i = 0; i < tournaments.length; i++) {
@@ -98,7 +116,11 @@ export const fetchUserTournaments = async (player: string): Promise<Result> => {
 
   let pokemonArray: PokemonArray[] = [];
   for (let i = 0; i < mons.length; i++) {
-    let poke = { name: mons[i].name, sprite: mons[i].image };
+    let poke = {
+      name: mons[i].name,
+      sprite: mons[i].image,
+      moves: mons[i].moves,
+    };
     pokemonArray.push(poke);
   }
 

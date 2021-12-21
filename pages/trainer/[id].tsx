@@ -12,12 +12,7 @@ import TournamentContainer from "../../components/TournamentContainer";
 import Roster from "../../components/Roster";
 import { leagueFilterState } from "../../atoms";
 
-const UserPage: NextPage<Props> = ({
-  tournaments,
-  trainerData,
-  roster,
-  faction,
-}) => {
+const UserPage: NextPage<Props> = ({ tournaments, trainerData, roster }) => {
   const [leagueFilter, setLeagueFilter] =
     useRecoilState<string>(leagueFilterState);
 
@@ -32,7 +27,7 @@ const UserPage: NextPage<Props> = ({
         bgColor="#414141"
         key={trainerData.playerName}
       >
-        <TrainerContainer faction={faction} trainerData={trainerData} />
+        <TrainerContainer trainerData={trainerData} />
 
         <Select
           w="50%"
@@ -70,7 +65,6 @@ type Props = {
   tournaments: Tournament[];
   trainerData: TrainerData;
   roster: PokemonArray[];
-  faction: string;
 };
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
