@@ -11,7 +11,9 @@ export const fetchSquadData = async (faction: string): Promise<SquadStats> => {
   ).toArray();
 
   const playerStats: PlayerStats[] = SquadElements.map((el: Element) => {
-    const name: string = $(el).find(" .name p").text() || "";
+    const name: string = $(el).find(" .name p").text().trim();
+    const avatar: string = $(el).find(" .avatar img").attr("src") || "";
+
     const score: string = $(el)
       .find(" .stats .battlesWon")
       .text()
@@ -26,7 +28,7 @@ export const fetchSquadData = async (faction: string): Promise<SquadStats> => {
       .replace("Specialist", "");
     const totalBattles: number = parseInt(matches) * 3;
 
-    return { name, score, matches, role, totalBattles };
+    return { name, avatar, score, matches, role, totalBattles };
   });
 
   const logo: string =

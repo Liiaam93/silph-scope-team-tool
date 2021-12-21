@@ -21,6 +21,7 @@ export interface TrainerData {
 
 export interface PlayerStats {
   name: string;
+  avatar: string;
   role: string;
   score: string;
   matches: string;

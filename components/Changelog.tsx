@@ -19,7 +19,7 @@ const Changelog: NextPage = () => {
     <>
       <Center>
         <Box
-          mt={["30vh", "20vh"]}
+          mt={["10vh", "10vh"]}
           border="solid black 2px"
           borderRadius="5px"
           bg="lightcyan"
@@ -43,8 +43,9 @@ const Changelog: NextPage = () => {
             <UnorderedList pt="2px">
               <ListItem>Added option to copy / export entire roster</ListItem>
               <ListItem fontStyle="italic">
-                (Currently no way to filter roster, WIP)
+                (Currently no way to filter roster, working on it!)
               </ListItem>
+              <ListItem>Started to clean up faction page</ListItem>
             </UnorderedList>
           </Box>
 
