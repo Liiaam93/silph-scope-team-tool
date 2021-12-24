@@ -52,7 +52,7 @@ export const getMoveData = (league: string) => {
     data = Ultra;
   } else if (league === "Master" || league.includes("Master")) {
     data = Master;
-  } else if (league === "Comet") {
+  } else if (league === "Comet" || league.includes("Comet")) {
     data = Comet;
   } else if (league === "Twilight") {
     data = Twilight;
