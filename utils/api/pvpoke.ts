@@ -48,9 +48,9 @@ export const getMoveData = (league: string) => {
   let data: PVPOKE[] = Great;
   if (league === "Great") {
     data = Great;
-  } else if (league === "Ultra") {
+  } else if (league === "Ultra" || league.includes("Ultra")) {
     data = Ultra;
-  } else if (league === "Master") {
+  } else if (league === "Master" || league.includes("Master")) {
     data = Master;
   } else if (league === "Comet") {
     data = Comet;
