@@ -19,15 +19,16 @@ const Changelog: NextPage = () => {
     <>
       <Center>
         <Box
-          mt={["10vh", "10vh"]}
+          mt={["5vh", "0vh"]}
           border="solid black 2px"
           borderRadius="5px"
           bg="lightcyan"
           p="10px"
           minH="40vh"
+          w="90vh"
         >
           <Heading alignSelf="center" fontSize="2xl">
-            <Center> News: </Center>
+            <Center> Updates: </Center>
           </Heading>
 
           <Heading fontSize="l" color="slategrey" fontStyle="italic">
@@ -63,6 +64,41 @@ const Changelog: NextPage = () => {
               <ListItem>Added option to filter by League</ListItem>
               <ListItem>
                 Moves &amp; PVPoke export now appear automatically
+              </ListItem>
+            </UnorderedList>
+          </Box>
+        </Box>
+      </Center>
+
+      {/* -------------------- */}
+      <Center>
+        <Box
+          border="solid black 2px"
+          borderRadius="5px"
+          bg="pink"
+          p="10px"
+          w="90vh"
+        >
+          <Heading alignSelf="center" fontSize="2xl">
+            <Center> Known Bugs: </Center>
+          </Heading>
+
+          <Box
+            mt="3px"
+            bg="yellow.100"
+            p="4"
+            border="solid white 3px"
+            borderRadius="5px"
+          >
+            <UnorderedList pt="2px">
+              <ListItem>
+                League filters dont properly reset when switching to another
+                trainer page (manual fix by toggling to a league and then back
+                to 'All Leagues')
+              </ListItem>
+              <ListItem>
+                If page errors on loading a trainer, try refreshing (if it cant
+                access silph within 10 seconds it will timeout)
               </ListItem>
             </UnorderedList>
           </Box>

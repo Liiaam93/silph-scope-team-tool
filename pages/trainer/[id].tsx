@@ -30,9 +30,9 @@ const UserPage: NextPage<Props> = ({ tournaments, trainerData, roster }) => {
         <TrainerContainer trainerData={trainerData} />
 
         <Select
-          w="50%"
           m="auto"
           mt="10px"
+          w="200px"
           bg="whitesmoke"
           onChange={(e) => setLeagueFilter(e.target.value)}
           defaultValue={""}
