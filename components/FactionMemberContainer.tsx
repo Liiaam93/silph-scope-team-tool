@@ -13,6 +13,7 @@ const FactionMemberContainer: FunctionComponent<PlayerStats> = ({
   return (
     <>
       <Flex
+        boxShadow="dark-lg"
         color="black"
         w="200px"
         maxW="45vw"
@@ -20,7 +21,6 @@ const FactionMemberContainer: FunctionComponent<PlayerStats> = ({
         pb="10px"
         flexDir="column"
         mr="5px"
-        border="1px"
         borderRadius="md"
         align="center"
         bg="lightblue"
