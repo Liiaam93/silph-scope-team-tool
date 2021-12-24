@@ -50,20 +50,6 @@ const PokemonContainer: FunctionComponent<Pokemon> = ({ ...pokemon }) => {
         <Text fontSize="smaller" color="grey.800">
           {pokemon.moves && pokemon.moves[2]}
         </Text>
-        {/* 
-        {league && (
-          <>
-            {get(
-              moves,
-              `[${pokemon.name.toLowerCase()}].moveset`,
-              []
-            ).map((name: string) => (
-              <Text color="darkslategrey" fontSize="sm">
-                {name}
-              </Text>
-            ))}
-          </>
-        )} */}
       </Flex>
     </>
   );

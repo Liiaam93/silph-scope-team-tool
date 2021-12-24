@@ -1,13 +1,8 @@
 import cheerio, { Element } from "cheerio";
-import { Pokemon, Tournament } from "../../types";
+import { Pokemon, Tournament, PokemonArray } from "../../types";
 import * as lodash from "lodash";
 import { getMoveData } from "../api/pvpoke";
 
-interface PokemonArray {
-  name?: string;
-  sprite?: string;
-  count?: number;
-}
 interface Result {
   tournaments: Tournament[];
   roster: PokemonArray[];

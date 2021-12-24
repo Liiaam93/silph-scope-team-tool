@@ -34,10 +34,10 @@ export interface SquadStats {
   playerStats: PlayerStats[];
 }
 export interface PokemonArray {
-  name: string;
-  sprite: string;
-  count: number;
-  moves: string[];
+  name?: string;
+  sprite?: string;
+  count?: number;
+  moves?: string[];
 }
 export interface Result {
   tournaments: Tournament[];
