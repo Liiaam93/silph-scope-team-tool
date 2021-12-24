@@ -1,4 +1,4 @@
-import { PVPOKE } from "../../types";
+import { PVPOKE, MoveData } from "../../types";
 import { Great } from "../../model/PVPoke/Great";
 import { Ultra } from "../../model/PVPoke/Ultra";
 import { Master } from "../../model/PVPoke/Master";
@@ -60,9 +60,9 @@ export const getMoveData = (league: string) => {
     data = Great;
   }
 
-  const movedata = data.map((data) => {
-    let name = data.speciesId;
-    let moves = data.moveset;
+  const movedata: MoveData[] = data.map((data) => {
+    let name: string = data.speciesId;
+    let moves: string[] = data.moveset;
 
     return {
       name,

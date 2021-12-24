@@ -1,5 +1,5 @@
 import cheerio, { Element } from "cheerio";
-import { Pokemon, Tournament, PokemonArray } from "../../types";
+import { Pokemon, Tournament, PokemonArray, MoveData } from "../../types";
 import * as lodash from "lodash";
 import { getMoveData } from "../api/pvpoke";
 
@@ -80,28 +80,23 @@ export const fetchUserTournaments = async (player: string): Promise<Result> => {
       pokemon,
     };
   });
-  // type League = "Great" | "Twilight" | "Master" | "Ultra" | "Comet";
-  type Moves = {
-    name: string;
-    moves: string[];
-  };
 
   for (let i = 0; i < tournaments.length; i++) {
     let league: string = tournaments[i].league || "Great";
-    let moves = getMoveData(league);
+    let moves: MoveData[] = getMoveData(league);
     for (let k = 0; k < tournaments[i].pokemon.length; k++) {
-      const moveArr = moves.find(
-        (o: Moves) => o.name === tournaments[i].pokemon[k].name.toLowerCase()
-      );
-      tournaments[i].pokemon[k].moves = moveArr?.moves || [];
+      const moveArr: MoveData = Object.values(moves).find(
+        (o: MoveData) => o.name === tournaments[i].pokemon[k].name.toLowerCase()
+      ) || { name: "", moves: [] };
+      moveArr.moves = tournaments[i].pokemon[k].moves = moveArr.moves;
     }
   }
 
-  let pokemonArrays = [];
+  let pokemonArrays: Array<Pokemon[]> = [];
   for (let i = 0; i < tournaments.length; i++) {
     pokemonArrays.push(tournaments[i].pokemon);
   }
-  const mons = [];
+  const mons: Array<Pokemon> = [];
 
   for (let i = 0; i < pokemonArrays.length; i++) {
     for (let k = 0; k < pokemonArrays[i].length; k++) {
@@ -115,6 +110,7 @@ export const fetchUserTournaments = async (player: string): Promise<Result> => {
       name: mons[i].name,
       sprite: mons[i].image,
       moves: mons[i].moves,
+      count: 0,
     };
     pokemonArray.push(poke);
   }
@@ -129,7 +125,7 @@ export const fetchUserTournaments = async (player: string): Promise<Result> => {
     count: counts[pokemonName],
   }));
 
-  const roster = Object.values(pokemonWithCount).sort(
+  const roster: any = Object.values(pokemonWithCount).sort(
     (b, a) => a.count - b.count
   );
 
