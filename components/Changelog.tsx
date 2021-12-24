@@ -31,7 +31,7 @@ const Changelog: NextPage = () => {
           </Heading>
 
           <Heading fontSize="l" color="slategrey" fontStyle="italic">
-            21.12.2021
+            24.12.2021
           </Heading>
           <Box
             mt="3px"
