@@ -44,6 +44,7 @@ const UserPage: NextPage<Props> = ({ tournaments, trainerData, roster }) => {
           <option value="Comet">Comet</option>
           <option value="Twilight">Twilight</option>
         </Select>
+
         <Roster {...roster} />
 
         {tournaments

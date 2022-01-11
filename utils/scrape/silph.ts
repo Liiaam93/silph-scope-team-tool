@@ -68,8 +68,9 @@ export const fetchUserTournaments = async (player: string): Promise<Result> => {
           name += "_Shadow";
         }
         const moves: string[] = [];
+        const tLeague = league;
 
-        return { name, image, moves };
+        return { name, image, moves, tLeague };
       });
     return {
       league,
@@ -111,6 +112,7 @@ export const fetchUserTournaments = async (player: string): Promise<Result> => {
       sprite: mons[i].image,
       moves: mons[i].moves,
       count: 0,
+      tLeague: mons[i].tLeague,
     };
     pokemonArray.push(poke);
   }

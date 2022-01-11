@@ -11,6 +11,7 @@ export interface Pokemon {
   name: string;
   image: string;
   moves: string[];
+  tLeague: string;
 }
 
 export interface TrainerData {
@@ -38,6 +39,7 @@ export interface PokemonArray {
   sprite: string;
   count: number;
   moves: string[];
+  tLeague: string;
 }
 export interface MoveData {
   name: string;

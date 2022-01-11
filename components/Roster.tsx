@@ -1,10 +1,8 @@
 import React from "react";
 import { FunctionComponent } from "react";
-import { Box, HStack, VStack } from "@chakra-ui/layout";
+import { Box, HStack, VStack, Center, Flex, Text } from "@chakra-ui/layout";
 import { Button } from "@chakra-ui/button";
 import { Image } from "@chakra-ui/image";
-import { Text } from "@chakra-ui/layout";
-import { Flex } from "@chakra-ui/layout";
 import {
   Modal,
   ModalOverlay,
@@ -16,6 +14,8 @@ import {
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/hooks";
 import { PokemonArray } from "../types";
+import { leagueFilterState } from "../atoms";
+import { useRecoilState } from "recoil";
 
 const copyPVP = async (copyText: string) => {
   await navigator.clipboard.writeText(copyText);
@@ -24,26 +24,28 @@ const copyPVP = async (copyText: string) => {
 
 const Roster: FunctionComponent<PokemonArray[]> = ({ ...roster }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [leagueFilter, setLeagueFilter] = useRecoilState(leagueFilterState);
 
-  const copyArray = Object.keys(roster).map(
-    (mon, i) =>
-      roster[i].name +
-      "," +
-      roster[i].moves[0] +
-      "," +
-      roster[i].moves[1] +
-      "," +
-      roster[i].moves[2] +
-      "\n"
+  const copyArray = Object.keys(roster).map((mon, i) =>
+    roster[i].tLeague === leagueFilter || !leagueFilter
+      ? roster[i].name +
+        "," +
+        roster[i].moves[0] +
+        "," +
+        roster[i].moves[1] +
+        "," +
+        roster[i].moves[2] +
+        "\n"
+      : ""
   );
 
   return (
     <>
       <Button bg="gold" m="auto" mt="10px" maxW="50%" onClick={onOpen}>
-        See Players Full Roster
+        View Player Roster
       </Button>
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
+      <Modal size={"5xl" || "md"} isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay w="100vw" />
         <ModalContent bg="white">
           <ModalHeader align="center">Roster</ModalHeader>
           <ModalCloseButton />
@@ -61,14 +63,17 @@ const Roster: FunctionComponent<PokemonArray[]> = ({ ...roster }) => {
             Copy Full Roster
           </Button>
           <ModalBody>
-            <Flex wrap="wrap" dir="row">
-              {Object.keys(roster).map((keyName, i) => (
-                <VStack key={i} w="25%">
-                  <Image src={roster[i].sprite} alt={roster[i].name} />
-                  <Text fontSize="xs">{roster[i].name}</Text>
-                  <Text>{roster[i].count}</Text>
-                </VStack>
-              ))}
+            <Flex wrap="wrap" dir="row" m="auto">
+              {Object.keys(roster).map(
+                (keyName, i) =>
+                  (roster[i].tLeague === leagueFilter || !leagueFilter) && (
+                    <VStack key={i} maxW="25%" m="auto">
+                      <Image src={roster[i].sprite} alt={roster[i].name} />
+                      <Text fontSize="xs">{roster[i].name}</Text>
+                      <Text>{roster[i].count}</Text>
+                    </VStack>
+                  )
+              )}
             </Flex>
           </ModalBody>
 

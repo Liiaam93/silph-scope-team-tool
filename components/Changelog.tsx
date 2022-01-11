@@ -32,6 +32,26 @@ const Changelog: NextPage = () => {
           </Heading>
 
           <Heading fontSize="l" color="slategrey" fontStyle="italic">
+            11.01.2022
+          </Heading>
+          <Box
+            mt="3px"
+            bg="yellow.100"
+            p="4"
+            border="solid white 3px"
+            borderRadius="5px"
+          >
+            <UnorderedList pt="2px">
+              <ListItem>
+                League filter will now also apply to 'Full Player Roster' and
+                it's export string.
+              </ListItem>{" "}
+              <ListItem fontStyle="italic">
+                Will add new field specialist leagues soon...
+              </ListItem>
+            </UnorderedList>
+          </Box>
+          <Heading fontSize="l" color="slategrey" fontStyle="italic">
             24.12.2021
           </Heading>
           <Box
@@ -43,9 +63,6 @@ const Changelog: NextPage = () => {
           >
             <UnorderedList pt="2px">
               <ListItem>Added option to copy / export entire roster</ListItem>
-              <ListItem fontStyle="italic">
-                (Currently no way to filter roster, working on it!)
-              </ListItem>
               <ListItem>Started to clean up faction page</ListItem>
             </UnorderedList>
           </Box>
