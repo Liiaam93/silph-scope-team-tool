@@ -41,6 +41,8 @@ const UserPage: NextPage<Props> = ({ tournaments, trainerData, roster }) => {
           <option value="Great League">Great League</option>
           <option value="Ultra League">Ultra League</option>
           <option value="Master League">Master League</option>
+          <option value="Cave">Cave</option>
+          <option value="Fusion">Fusion</option>
           <option value="Comet">Comet</option>
           <option value="Twilight">Twilight</option>
         </Select>
