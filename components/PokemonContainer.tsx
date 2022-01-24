@@ -13,6 +13,8 @@ import { Ultra } from "../model/PVPoke/Ultra";
 import { Master } from "../model/PVPoke/Master";
 import { Comet } from "../model/PVPoke/Comet";
 import { Twilight } from "../model/PVPoke/Twilight";
+import { Cave } from "../model/PVPoke/Cave";
+import { Fusion } from "../model/PVPoke/Fusion";
 
 const PokemonContainer: FunctionComponent<Pokemon> = ({ ...pokemon }) => {
   const [league, setLeague] = useRecoilState(leagueFilterState);
