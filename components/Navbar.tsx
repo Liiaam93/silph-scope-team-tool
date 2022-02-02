@@ -44,7 +44,7 @@ const Navbar: NextPage = () => {
             fontFamily="Arial"
             textShadow="-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000"
           >
-            Silph-Scope
+            Silph Scope
           </Link>
         </NextLink>
         <HStack w={["100vw", "100vw", "47vw", "43vw"]} p="1px" m="auto">
