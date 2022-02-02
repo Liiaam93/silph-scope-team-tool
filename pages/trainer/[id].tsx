@@ -20,7 +20,7 @@ const UserPage: NextPage<Props> = ({ tournaments, trainerData, roster }) => {
     <>
       <Navbar />
       <Flex
-        pt={["20vh", "10vh"]}
+        pt={["15vh", "15vh", "10vh", "10vh", "5vh"]}
         minHeight="100vh"
         flexDir="column"
         alignContent="center"

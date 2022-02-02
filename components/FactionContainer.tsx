@@ -12,7 +12,7 @@ const FactionContainer: FunctionComponent<SquadStats> = ({
       m="auto"
       mt="10px"
       align="center"
-      w={["95vw", "fit-content"]}
+      w={["fit-content"]}
       boxShadow="dark-lg"
       bg="lightblue"
       color="black"
@@ -26,12 +26,13 @@ const FactionContainer: FunctionComponent<SquadStats> = ({
         w="100px"
         borderRadius="3xl"
         pr="5px"
+        mr="5px"
       />
 
       <Flex flexDir="column" m="auto">
         <Text fontSize={["3xl", "2xl"]}>{factionData.teamName}</Text>
         <Text>Win Rate:</Text>
-        <Text>{factionData.winLoss}</Text>
+        <Text fontSize="2xl"> {factionData.winLoss}</Text>
       </Flex>
     </Flex>
   );
