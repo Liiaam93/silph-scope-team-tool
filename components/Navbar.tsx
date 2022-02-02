@@ -30,11 +30,18 @@ const Navbar: NextPage = () => {
         p="5px"
       >
         <NextLink href="/" passHref>
-          <Link color="gold" m="auto">
-            Silph Scope
+          <Link
+            textAlign="center"
+            fontWeight="350"
+            color="gold"
+            w={["100vw", "100vw", "100vw", "100vw", "10%"]}
+            textShadow="-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000"
+            fontSize="2xl"
+          >
+            Silph-Scope
           </Link>
         </NextLink>
-        <Flex w="xl" pb="5px">
+        <HStack w={["100vw", "100vw", "47vw", "43vw"]} p="1px" m="auto">
           <Select
             onChange={(e) => setSquadID(e.target.value)}
             bg="#F0F8FF"
@@ -64,8 +71,8 @@ const Navbar: NextPage = () => {
           >
             Load Team
           </Button>
-        </Flex>
-        <Flex w="xl">
+        </HStack>
+        <HStack w={["100vw", "100vw", "47vw", "43vw"]} p="1px" m="auto">
           <Input
             bg="#F0F8FF"
             value={trainerName}
@@ -87,7 +94,7 @@ const Navbar: NextPage = () => {
           >
             Load Player
           </Button>
-        </Flex>
+        </HStack>
       </HStack>
     </>
   );
