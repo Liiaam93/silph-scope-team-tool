@@ -32,6 +32,24 @@ const Changelog: NextPage = () => {
           </Heading>
 
           <Heading fontSize="l" color="slategrey" fontStyle="italic">
+            17.02.2022
+          </Heading>
+          <Box
+            mt="3px"
+            bg="yellow.100"
+            p="4"
+            border="solid white 3px"
+            borderRadius="5px"
+          >
+            <UnorderedList pt="2px">
+              <ListItem>
+                Fixed move data for Fusion & Cave (Was previously showing
+                Great-League moveset, oops...)
+              </ListItem>
+            </UnorderedList>
+          </Box>
+
+          <Heading fontSize="l" color="slategrey" fontStyle="italic">
             11.01.2022
           </Heading>
           <Box

@@ -4,6 +4,8 @@ import { Ultra } from "../../model/PVPoke/Ultra";
 import { Master } from "../../model/PVPoke/Master";
 import { Comet } from "../../model/PVPoke/Comet";
 import { Twilight } from "../../model/PVPoke/Twilight";
+import { Cave } from "../../model/PVPoke/Cave";
+import { Fusion } from "../../model/PVPoke/Fusion";
 
 export interface PokemonStats {
   name: string;
@@ -29,6 +31,8 @@ const leaguePaths = {
   Master: Master,
   Ultra: Ultra,
   Comet: Comet,
+  Cave: Cave,
+  Fusion: Fusion,
 };
 
 // export const getMoveData = async (league: League): Promise<PokemonStats[]> => {
@@ -54,6 +58,10 @@ export const getMoveData = (league: string) => {
     data = Master;
   } else if (league === "Comet" || league.includes("Comet")) {
     data = Comet;
+  } else if (league === "Cave" || league.includes("Cave")) {
+    data = Cave;
+  } else if (league === "Fusion" || league.includes("Fusion")) {
+    data = Fusion;
   } else if (league === "Twilight") {
     data = Twilight;
   } else {
