@@ -13,7 +13,7 @@ const PokemonContainer: FunctionComponent<Pokemon> = ({ ...pokemon }) => {
   let bgc = "darksalmon";
   let bgi = "";
   pokemon.name.includes("Shadow")
-    ? ((bgc = "MediumSlateBlue"), (bgi = "/shaddy.png"))
+    ? ((bgc = "#9B7DA3"), (bgi = "/shaddy.png"))
     : "";
 
   return (
