@@ -13,7 +13,7 @@ const PokemonContainer: FunctionComponent<Pokemon> = ({ ...pokemon }) => {
   let bgc = "darksalmon";
   let bgi = "";
   pokemon.name.includes("Shadow")
-    ? ((bgc = "MediumSlateBlue"), (bgi = "/shaddys.png"))
+    ? ((bgc = "MediumSlateBlue"), (bgi = "/shaddy.png"))
     : "";
 
   return (
@@ -35,7 +35,7 @@ const PokemonContainer: FunctionComponent<Pokemon> = ({ ...pokemon }) => {
           borderRadius="lg"
           w="max"
           mt="5px"
-          bg={"darksalmon"}
+          bg={bgc}
           backgroundImage={bgi}
           pl="15px"
           pr="15px"
