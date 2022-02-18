@@ -1,5 +1,5 @@
 import React from "react";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
 import { Box, HStack, VStack, Center, Flex, Text } from "@chakra-ui/layout";
 import { Button } from "@chakra-ui/button";
 import { Image } from "@chakra-ui/image";
@@ -21,6 +21,8 @@ const copyPVP = async (copyText: string) => {
   await navigator.clipboard.writeText(copyText);
   alert("copied!");
 };
+
+let bgi = "/";
 
 const Roster: FunctionComponent<PokemonArray[]> = ({ ...roster }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -68,7 +70,24 @@ const Roster: FunctionComponent<PokemonArray[]> = ({ ...roster }) => {
                 (keyName, i) =>
                   (roster[i].tLeague === leagueFilter || !leagueFilter) && (
                     <VStack key={i} maxW="25%" m="auto">
-                      <Image src={roster[i].sprite} alt={roster[i].name} />
+                      {roster[i].isShadow ? (
+                        <Image
+                          backgroundImage={"/shaddys.png"}
+                          src={roster[i].sprite}
+                          alt={roster[i].name}
+                        />
+                      ) : (
+                        <Image
+                          backgroundImage={"/"}
+                          src={roster[i].sprite}
+                          alt={roster[i].name}
+                        />
+                      )}
+                      {/* <Image
+                        bg={"orange"}
+                        src={roster[i].sprite}
+                        alt={roster[i].name}
+                      /> */}
                       <Text fontSize="xs">{roster[i].name}</Text>
                       <Text>{roster[i].count}</Text>
                     </VStack>

@@ -12,6 +12,7 @@ export interface Pokemon {
   image: string;
   moves: string[];
   tLeague: string;
+  isShadow: boolean;
 }
 
 export interface TrainerData {
@@ -40,6 +41,8 @@ export interface PokemonArray {
   count: number;
   moves: string[];
   tLeague: string;
+  bg?: string;
+  isShadow: boolean;
 }
 export interface MoveData {
   name: string;

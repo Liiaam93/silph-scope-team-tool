@@ -46,6 +46,11 @@ const Changelog: NextPage = () => {
                 Fixed move data for Fusion & Cave (Was previously showing
                 Great-League moveset, oops...)
               </ListItem>
+              <ListItem>
+                Shadow Pokemon are now 100% more shadowy (PVPOKE
+                Teambuilder-Custom Threats however still doesn't work with
+                shadow pokemon... )
+              </ListItem>
             </UnorderedList>
           </Box>
 

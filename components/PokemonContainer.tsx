@@ -7,17 +7,14 @@ import { atom, useRecoilState, selector } from "recoil";
 import { get } from "lodash";
 
 import { Image } from "@chakra-ui/react";
-
-import { Great } from "../model/PVPoke/Great";
-import { Ultra } from "../model/PVPoke/Ultra";
-import { Master } from "../model/PVPoke/Master";
-import { Comet } from "../model/PVPoke/Comet";
-import { Twilight } from "../model/PVPoke/Twilight";
-import { Cave } from "../model/PVPoke/Cave";
-import { Fusion } from "../model/PVPoke/Fusion";
-
 const PokemonContainer: FunctionComponent<Pokemon> = ({ ...pokemon }) => {
   const [league, setLeague] = useRecoilState(leagueFilterState);
+
+  let bgc = "darksalmon";
+  let bgi = "";
+  pokemon.name.includes("Shadow")
+    ? ((bgc = "MediumSlateBlue"), (bgi = "/shaddys.png"))
+    : "";
 
   return (
     <>
@@ -38,7 +35,8 @@ const PokemonContainer: FunctionComponent<Pokemon> = ({ ...pokemon }) => {
           borderRadius="lg"
           w="max"
           mt="5px"
-          bg="darksalmon"
+          bg={"darksalmon"}
+          backgroundImage={bgi}
           pl="15px"
           pr="15px"
         />
