@@ -24,7 +24,14 @@ const PokemonContainer: FunctionComponent<Pokemon> = ({ ...pokemon }) => {
   pokemon.tLeague.includes("Great") ? (backgroundTexture = "/glg.png") : "";
   pokemon.tLeague.includes("Ultra") ? (backgroundTexture = "/ULG.png") : "";
   pokemon.tLeague.includes("Master") ? (backgroundTexture = "/mlg.png") : "";
-  pokemon.tLeague.includes("Comet") ? (backgroundTexture = "/cmeet.jpg") : "";
+  pokemon.tLeague.includes("Comet") ? (backgroundTexture = "/comets.jpg") : "";
+  pokemon.tLeague.includes("Fusion") ? (backgroundTexture = "/fusion.png") : "";
+  pokemon.tLeague.includes("Twilight")
+    ? (backgroundTexture = "/twilight.png")
+    : "";
+  pokemon.tLeague.includes("Floating")
+    ? (backgroundTexture = "/floating.png")
+    : "";
   pokemon.tLeague.includes("Atlantis")
     ? (backgroundTexture = "/atlantis.jpg")
     : "";
