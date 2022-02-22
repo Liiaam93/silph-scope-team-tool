@@ -72,7 +72,7 @@ const Roster: FunctionComponent<PokemonArray[]> = ({ ...roster }) => {
                     <VStack key={i} maxW="25%" m="auto">
                       {roster[i].isShadow ? (
                         <Image
-                          backgroundImage={"/shaddys.png"}
+                          backgroundImage={"/shadowbackdrop.png"}
                           src={roster[i].sprite}
                           alt={roster[i].name}
                         />

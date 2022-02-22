@@ -6,14 +6,27 @@ import { leagueFilterState } from ".././atoms";
 import { atom, useRecoilState, selector } from "recoil";
 import { get } from "lodash";
 
-import { Image } from "@chakra-ui/react";
+import { Box, Image } from "@chakra-ui/react";
 const PokemonContainer: FunctionComponent<Pokemon> = ({ ...pokemon }) => {
   const [league, setLeague] = useRecoilState(leagueFilterState);
 
-  let bgc = "darksalmon";
-  let bgi = "";
+  let bgc = "#929C69";
+  let bgi = "/";
   pokemon.name.includes("Shadow")
-    ? ((bgc = "#9B7DA3"), (bgi = "/shaddy.png"))
+    ? ((bgc = "#9B7DA3"), (bgi = "/shadowbackdrop.png"))
+    : "";
+  let backgroundTexture;
+  pokemon.tLeague.includes("Cave") ? (backgroundTexture = "/cave.jpeg") : "";
+
+  pokemon.tLeague.includes("Fusion")
+    ? (backgroundTexture = "/fusion.jpeg")
+    : "";
+  pokemon.tLeague.includes("Great") ? (backgroundTexture = "/glg.png") : "";
+  pokemon.tLeague.includes("Ultra") ? (backgroundTexture = "/ulg.png") : "";
+  pokemon.tLeague.includes("Master") ? (backgroundTexture = "/mlg.png") : "";
+  pokemon.tLeague.includes("Comet") ? (backgroundTexture = "/cmeet.jpg") : "";
+  pokemon.tLeague.includes("Atlantis")
+    ? (backgroundTexture = "/atlantis.jpg")
     : "";
 
   return (
@@ -28,18 +41,25 @@ const PokemonContainer: FunctionComponent<Pokemon> = ({ ...pokemon }) => {
         minW="150px"
         key={pokemon.name}
       >
-        <Image
-          src={pokemon.image}
-          alt={pokemon.name}
-          border="1px"
+        <Box
+          mt="6px"
           borderRadius="lg"
+          border="1px"
           w="max"
-          mt="5px"
-          bg={bgc}
-          backgroundImage={bgi}
-          pl="15px"
-          pr="15px"
-        />
+          backgroundImage={backgroundTexture}
+        >
+          <Image
+            src={pokemon.image}
+            alt={pokemon.name}
+            border="1px"
+            borderRadius="lg"
+            w="max"
+            // bg={bgc}
+            backgroundImage={bgi}
+            pl="15px"
+            pr="15px"
+          />
+        </Box>
         <Text color="black">{pokemon.name}</Text>
         <Text fontSize="smaller" color="grey.800">
           {pokemon.moves && pokemon.moves[0]}

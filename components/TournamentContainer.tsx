@@ -36,6 +36,7 @@ const TournamentContainer: FunctionComponent<Props> = ({ tournament }) => {
       mt="10px"
       borderWidth="1px"
       bg="darkgrey"
+      // backgroundImage={"/ultra-ball.jpg"}
       borderRadius="lg"
     >
       <Box w="fit-content" m="auto" textAlign="center">
