@@ -60,6 +60,8 @@ export const fetchUserTournaments = async (player: string): Promise<Result> => {
           name = name + "_Armored";
         } else if (name === "Darmanitan") {
           name += "_Standard";
+        } else if (name === "Ho-Oh") {
+          name = "Ho_Oh";
         }
 
         const image: string = $(el).find("img").attr("src") || "";
