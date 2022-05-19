@@ -22,6 +22,7 @@ export const factions: faction = {
   aa203842ce: "EPL ORIGINS",
   f9d98b611e: "ETTORE'S CRYING",
   "41cbf9a5e1": "EU EMPERORS",
+  c87b9a302e: "EVIL WORMS OF SBT",
   "9219faa18a": "FACTION KILLERZ",
   "14705e87ea": "FANI KUSHIEGO",
   "6a4d354cc0": "FIGHTCLUB",
