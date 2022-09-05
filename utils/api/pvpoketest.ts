@@ -8,6 +8,10 @@ export interface PokemonStats {
   chargedMoves: string[];
 }
 type League = "Great" | "Twilight" | "Master" | "Ultra" | "Comet";
+// | "Celestial"
+// | "Primeval"
+// | "Sorcerous"
+// | "Timeless";
 
 const leaguePaths: Record<League, string> = {
   Great: "all/overall/rankings-1500",

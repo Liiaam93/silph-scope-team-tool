@@ -1,4 +1,4 @@
-export const Ultra = [
+export const Celestial = [
   {
     speciesId: "regirock",
     speciesName: "Regirock",

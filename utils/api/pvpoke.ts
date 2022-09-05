@@ -6,6 +6,10 @@ import { Comet } from "../../model/PVPoke/Comet";
 import { Twilight } from "../../model/PVPoke/Twilight";
 import { Cave } from "../../model/PVPoke/Cave";
 import { Fusion } from "../../model/PVPoke/Fusion";
+import { Sorcerous } from "../../model/PVPoke/Sorcerous";
+import { Celestial } from "../../model/PVPoke/Celestial";
+import { Primeval } from "../../model/PVPoke/Primeval";
+import { Timeless } from "../../model/PVPoke/Timeless";
 
 export interface PokemonStats {
   name: string;
@@ -33,6 +37,10 @@ const leaguePaths = {
   Comet: Comet,
   Cave: Cave,
   Fusion: Fusion,
+  Primeval: Primeval,
+  Timeless: Timeless,
+  Sorcerous: Sorcerous,
+  Celestial: Celestial,
 };
 
 // export const getMoveData = async (league: League): Promise<PokemonStats[]> => {
@@ -64,6 +72,14 @@ export const getMoveData = (league: string) => {
     data = Fusion;
   } else if (league === "Twilight") {
     data = Twilight;
+  } else if (league === "Sorcerous" || league.includes("Sorcerous")) {
+    data = Sorcerous;
+  } else if (league === "Celestial" || league.includes("Celestial")) {
+    data = Celestial;
+  } else if (league === "Timeless" || league.includes("Timeless")) {
+    data = Timeless;
+  } else if (league === "Primeval" || league.includes("Primeval")) {
+    data = Primeval;
   } else {
     data = Great;
   }

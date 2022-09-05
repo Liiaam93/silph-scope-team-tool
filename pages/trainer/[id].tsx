@@ -39,9 +39,13 @@ const UserPage: NextPage<Props> = ({ tournaments, trainerData, roster }) => {
           placeholder="All Leagues"
         >
           <option value="Great League">Great League</option>
-          <option value="Ultra League">Ultra League</option>
+          <option value="Celestial">Celestial (Ultra League) </option>
           <option value="Master League">Master League</option>
+          <option value="Primeval">Primeval</option>
+          <option value="Sorcerous">Sorcerous</option>
+          <option value="Timeless">Timeless</option>
           <option value="Cave">Cave</option>
+          <option value="Ultra League">Ultra League</option>
           <option value="Fusion">Fusion</option>
           <option value="Comet">Comet</option>
           <option value="Twilight">Twilight</option>
