@@ -32,6 +32,26 @@ const Changelog: NextPage = () => {
           </Heading>
 
           <Heading fontSize="l" color="slategrey" fontStyle="italic">
+            05.09.2022
+          </Heading>
+          <Box
+            mt="3px"
+            bg="yellow.100"
+            p="4"
+            border="solid white 3px"
+            borderRadius="5px"
+          >
+            <UnorderedList pt="2px">
+              <ListItem>
+                Added new leagues (Celestial, Timeless, Primeval and Sorcerous)
+                and new factions (the ones in iron cycle anyways, will look into
+                added all teams eventually and filtering by team ranking, iron,
+                open, etc...)
+              </ListItem>
+            </UnorderedList>
+          </Box>
+
+          <Heading fontSize="l" color="slategrey" fontStyle="italic">
             17.02.2022
           </Heading>
           <Box
