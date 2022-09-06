@@ -61,6 +61,7 @@ export const factions: faction = {
   f5a3c4cf1e: "LYCANROCS",
   "023c465cc6": "MAJADAS RAVENS MUNIN",
   cafdff19c9: "MENTAL KNOTS",
+  "04aafe1c73": "MILTANK MILKERS",
   "18a46df16a": "MORTAL BELTERS",
   "0b508822e4": "ONFIRE",
   b06e30287d: "ONIXPECTED WINS",
