@@ -57,7 +57,7 @@ export const fetchUserTournaments = async (player: string): Promise<Result> => {
         } else if (name.includes("Hisuian")) {
           let len = name.length;
           name = name.slice(8, len);
-          name = name + "Hisui";
+          name = name + "_Hisui";
         } else if (name.includes("Armored")) {
           let len = name.length;
           name = name.slice(8, len);
