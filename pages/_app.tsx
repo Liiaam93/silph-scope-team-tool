@@ -4,6 +4,7 @@ import { RecoilRoot } from "recoil";
 import NextNProgress from "nextjs-progressbar";
 import Head from "next/head";
 import customTheme from "./../styles/theme";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

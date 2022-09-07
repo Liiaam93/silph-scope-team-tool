@@ -16,6 +16,7 @@ const breakpoints = createBreakpoints({
   lg: "64em",
   lg: "62em",
 });
+
 const overrides = {
   ...chakraTheme,
   fonts,

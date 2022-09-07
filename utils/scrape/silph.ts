@@ -23,7 +23,9 @@ export const fetchUserTournaments = async (player: string): Promise<Result> => {
       .text()
       .trim()
       .replace("Open", "")
-      .replace("v1", "")
+      // .replace("v1", "")
+      // .replace("V2", "")
+      // .replace("V3", "")
       .trim();
 
     const bout: string = $(el).find(".tourneyName").text().trim();
@@ -66,6 +68,8 @@ export const fetchUserTournaments = async (player: string): Promise<Result> => {
           name += "_Standard";
         } else if (name === "Ho-Oh") {
           name = "Ho_oh";
+        } else if (name === "Tapu Fini") {
+          name = "Tapu_Fini";
         }
 
         const image: string = $(el).find("img").attr("src") || "";

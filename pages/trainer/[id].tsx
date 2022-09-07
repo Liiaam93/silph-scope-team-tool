@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import { Box, Flex, Text } from "@chakra-ui/layout";
 import { GetServerSideProps } from "next";
-import { Select } from "@chakra-ui/react";
+import { MenuItemOption, Select } from "@chakra-ui/react";
 import { atom, useRecoilState, selector } from "recoil";
 import { Tournament, TrainerData, PokemonArray } from "../../types";
 import { fetchUserTournaments } from "../../utils/scrape/silph";
@@ -38,17 +38,63 @@ const UserPage: NextPage<Props> = ({ tournaments, trainerData, roster }) => {
           defaultValue={""}
           placeholder="All Leagues"
         >
-          <option value="Great League">Great League</option>
-          <option value="Celestial">Celestial (Ultra League) </option>
-          <option value="Master League">Master League</option>
-          <option value="Primeval">Primeval</option>
-          <option value="Sorcerous">Sorcerous</option>
-          <option value="Timeless">Timeless</option>
-          <option value="Cave">Cave</option>
-          <option value="Ultra League">Ultra League</option>
-          <option value="Fusion">Fusion</option>
-          <option value="Comet">Comet</option>
-          <option value="Twilight">Twilight</option>
+          <option
+            style={{ backgroundColor: "whitesmoke", fontStyle: "italic" }}
+            disabled
+          >
+            Current Cups
+          </option>
+          <option
+            style={{ backgroundColor: "whitesmoke" }}
+            value="Great League"
+          >
+            Great League
+          </option>
+          <option style={{ backgroundColor: "whitesmoke" }} value="Celestial">
+            Celestial (Ultra League){" "}
+          </option>
+          <option
+            style={{ backgroundColor: "whitesmoke" }}
+            value="Master League"
+          >
+            Master League
+          </option>
+          <option style={{ backgroundColor: "whitesmoke" }} value="Primeval">
+            Primeval
+          </option>
+          <option style={{ backgroundColor: "whitesmoke" }} value="Sorcerous">
+            Sorcerous
+          </option>
+          <option style={{ backgroundColor: "whitesmoke" }} value="Timeless">
+            Timeless
+          </option>
+          <option style={{ backgroundColor: "whitesmoke" }} disabled>
+            Old Cups
+          </option>
+          <option
+            style={{ backgroundColor: "whitesmoke" }}
+            value="Ultra League"
+          >
+            Ultra League
+          </option>
+          <option style={{ backgroundColor: "whitesmoke" }} value="Cave">
+            Cave
+          </option>
+          <option style={{ backgroundColor: "whitesmoke" }} value="Fusion">
+            Fusion
+          </option>
+          <option style={{ backgroundColor: "whitesmoke" }} value="Comet">
+            Comet
+          </option>
+          <option style={{ backgroundColor: "whitesmoke" }} value="Twilight">
+            Twilight
+          </option>
+          <option style={{ backgroundColor: "whitesmoke" }} value="Colony">
+            Colony
+          </option>
+          <option style={{ backgroundColor: "whitesmoke" }} value="Alchemy">
+            Alchemy
+          </option>
         </Select>
 
         <Roster {...roster} />
@@ -56,7 +102,7 @@ const UserPage: NextPage<Props> = ({ tournaments, trainerData, roster }) => {
         {tournaments
           .filter(({ league }) => {
             if (!leagueFilter.trim()) return true;
-            return league === leagueFilter;
+            return league.includes(leagueFilter);
           })
           .map((t: Tournament, index: number) => (
             <TournamentContainer
