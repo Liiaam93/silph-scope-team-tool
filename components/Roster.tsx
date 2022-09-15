@@ -68,7 +68,8 @@ const Roster: FunctionComponent<PokemonArray[]> = ({ ...roster }) => {
             <Flex wrap="wrap" dir="row" m="auto">
               {Object.keys(roster).map(
                 (keyName, i) =>
-                  (roster[i].tLeague === leagueFilter || !leagueFilter) && (
+                  (roster[i].tLeague.includes(leagueFilter) ||
+                    !leagueFilter) && (
                     <VStack key={i} maxW="25%" m="auto">
                       {roster[i].isShadow ? (
                         <Image
