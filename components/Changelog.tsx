@@ -30,7 +30,23 @@ const Changelog: NextPage = () => {
           <Heading alignSelf="center" fontSize="2xl">
             <Center> Updates: </Center>
           </Heading>
-
+          <Heading fontSize="l" color="slategrey" fontStyle="italic">
+            15.09.2022
+          </Heading>
+          <Box
+            mt="3px"
+            bg="yellow.100"
+            p="4"
+            border="solid white 3px"
+            borderRadius="5px"
+          >
+            <UnorderedList pt="2px">
+              <ListItem>
+                Fixed Ultra League roster not showing, and fixed lycanroc formes
+                ;) thanks Nile!
+              </ListItem>
+            </UnorderedList>
+          </Box>{" "}
           <Heading fontSize="l" color="slategrey" fontStyle="italic">
             05.09.2022
           </Heading>
@@ -50,7 +66,6 @@ const Changelog: NextPage = () => {
               </ListItem>
             </UnorderedList>
           </Box>
-
           <Heading fontSize="l" color="slategrey" fontStyle="italic">
             17.02.2022
           </Heading>
@@ -73,7 +88,6 @@ const Changelog: NextPage = () => {
               </ListItem>
             </UnorderedList>
           </Box>
-
           <Heading fontSize="l" color="slategrey" fontStyle="italic">
             11.01.2022
           </Heading>
@@ -109,7 +123,6 @@ const Changelog: NextPage = () => {
               <ListItem>Started to clean up faction page</ListItem>
             </UnorderedList>
           </Box>
-
           <Heading fontSize="l" color="slategrey" fontStyle="italic">
             20.12.2021
           </Heading>
