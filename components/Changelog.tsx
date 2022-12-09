@@ -70,7 +70,7 @@ const Changelog: NextPage = () => {
               </ListItem>
               <ListItem>
                 Shadow Pokemon are now 100% more shadowy (PVPOKE
-                Teambuilder-Custom Threats however still doesn't work with
+                Teambuilder-Custom Threats however still doesn&apos;t work with
                 shadow pokemon... )
               </ListItem>
             </UnorderedList>
@@ -87,8 +87,8 @@ const Changelog: NextPage = () => {
           >
             <UnorderedList pt="2px">
               <ListItem>
-                League filter will now also apply to 'Full Player Roster' and
-                it's export string.
+                League filter will now also apply to &apos;Full Player
+                Roster&apos; and it&apos;s export string.
               </ListItem>
               <ListItem fontStyle="italic">
                 Will add new field specialist leagues soon...
@@ -153,7 +153,7 @@ const Changelog: NextPage = () => {
               <ListItem>
                 League filters dont properly reset when switching to another
                 trainer page (manual fix by toggling to a league and then back
-                to 'All Leagues')
+                to &apos;All Leagues&apos;)
               </ListItem>
               <ListItem>
                 If page errors on loading a trainer, try refreshing (if it cant
