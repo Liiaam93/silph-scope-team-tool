@@ -43,7 +43,6 @@ const Changelog: NextPage = () => {
             <UnorderedList pt="2px">
               <ListItem>
                 Fixed Ultra League roster not showing, and fixed lycanroc formes
-                ;) thanks Nile!
               </ListItem>
             </UnorderedList>
           </Box>{" "}
