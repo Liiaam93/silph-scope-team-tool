@@ -1,17 +1,5 @@
-import { Flex, Text, Box, Center, Heading } from "@chakra-ui/layout";
-import { Tournament, Pokemon } from "../types";
-import { FunctionComponent, useEffect, useState } from "react";
-import { Button } from "@chakra-ui/button";
-import PokemonContainer from "./PokemonContainer";
-import { Image, useClipboard } from "@chakra-ui/react";
-import { atom, useRecoilState } from "recoil";
-import {
-  List,
-  ListItem,
-  ListIcon,
-  OrderedList,
-  UnorderedList,
-} from "@chakra-ui/react";
+import { Box, Center, Heading } from "@chakra-ui/layout";
+import { ListItem, UnorderedList } from "@chakra-ui/react";
 import { NextPage } from "next";
 
 const Changelog: NextPage = () => {
@@ -45,7 +33,7 @@ const Changelog: NextPage = () => {
                 Fixed Ultra League roster not showing, and fixed lycanroc formes
               </ListItem>
             </UnorderedList>
-          </Box>{" "}
+          </Box>
           <Heading fontSize="l" color="slategrey" fontStyle="italic">
             05.09.2022
           </Heading>
@@ -101,7 +89,7 @@ const Changelog: NextPage = () => {
               <ListItem>
                 League filter will now also apply to 'Full Player Roster' and
                 it's export string.
-              </ListItem>{" "}
+              </ListItem>
               <ListItem fontStyle="italic">
                 Will add new field specialist leagues soon...
               </ListItem>
@@ -142,7 +130,6 @@ const Changelog: NextPage = () => {
         </Box>
       </Center>
 
-      {/* -------------------- */}
       <Center>
         <Box
           border="solid black 2px"
