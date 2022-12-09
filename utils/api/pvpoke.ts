@@ -10,6 +10,8 @@ import { Sorcerous } from "../../model/PVPoke/Sorcerous";
 import { Celestial } from "../../model/PVPoke/Celestial";
 import { Primeval } from "../../model/PVPoke/Primeval";
 import { Timeless } from "../../model/PVPoke/Timeless";
+import { Ember } from "../../model/PVPoke/Ember";
+import { Vanguard } from "../../model/PVPoke/Vanguard";
 
 export interface PokemonStats {
   name: string;
@@ -41,6 +43,8 @@ const leaguePaths = {
   Timeless: Timeless,
   Sorcerous: Sorcerous,
   Celestial: Celestial,
+  Ember: Ember,
+  Vanguard: Vanguard,
 };
 
 // export const getMoveData = async (league: League): Promise<PokemonStats[]> => {
@@ -80,6 +84,10 @@ export const getMoveData = (league: string) => {
     data = Timeless;
   } else if (league === "Primeval" || league.includes("Primeval")) {
     data = Primeval;
+  } else if (league === "Ember" || league.includes("Ember")) {
+    data = Ember;
+  } else if (league === "Vanguard" || league.includes("Vanguard")) {
+    data = Vanguard;
   } else {
     data = Great;
   }

@@ -29,7 +29,7 @@ const Roster: FunctionComponent<PokemonArray[]> = ({ ...roster }) => {
   const [leagueFilter, setLeagueFilter] = useRecoilState(leagueFilterState);
 
   const copyArray = Object.keys(roster).map((mon, i) =>
-    roster[i].tLeague === leagueFilter || !leagueFilter
+    roster[i].tLeague.includes(leagueFilter) || !leagueFilter
       ? roster[i].name +
         "," +
         roster[i].moves[0] +
@@ -49,7 +49,7 @@ const Roster: FunctionComponent<PokemonArray[]> = ({ ...roster }) => {
       <Modal size={"5xl" || "md"} isOpen={isOpen} onClose={onClose}>
         <ModalOverlay w="100vw" />
         <ModalContent bg="white">
-          <ModalHeader align="center">Roster</ModalHeader>
+          <ModalHeader textAlign="center">Roster</ModalHeader>
           <ModalCloseButton />
           <Button
             background="grey"

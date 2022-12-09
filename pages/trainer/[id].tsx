@@ -50,8 +50,12 @@ const UserPage: NextPage<Props> = ({ tournaments, trainerData, roster }) => {
           >
             Great League
           </option>
-          <option style={{ backgroundColor: "whitesmoke" }} value="Celestial">
-            Celestial (Ultra League){" "}
+
+          <option
+            style={{ backgroundColor: "whitesmoke" }}
+            value="Ultra League"
+          >
+            Ultra League
           </option>
           <option
             style={{ backgroundColor: "whitesmoke" }}
@@ -59,6 +63,17 @@ const UserPage: NextPage<Props> = ({ tournaments, trainerData, roster }) => {
           >
             Master League
           </option>
+          <option style={{ backgroundColor: "whitesmoke" }} value="Ember">
+            Ember
+          </option>
+          <option style={{ backgroundColor: "whitesmoke" }} value="Vanguard">
+            Vanguard
+          </option>
+
+          <option style={{ backgroundColor: "whitesmoke" }} disabled>
+            Old Cups
+          </option>
+
           <option style={{ backgroundColor: "whitesmoke" }} value="Primeval">
             Primeval
           </option>
@@ -68,15 +83,7 @@ const UserPage: NextPage<Props> = ({ tournaments, trainerData, roster }) => {
           <option style={{ backgroundColor: "whitesmoke" }} value="Timeless">
             Timeless
           </option>
-          <option style={{ backgroundColor: "whitesmoke" }} disabled>
-            Old Cups
-          </option>
-          <option
-            style={{ backgroundColor: "whitesmoke" }}
-            value="Ultra League"
-          >
-            Ultra League
-          </option>
+
           <option style={{ backgroundColor: "whitesmoke" }} value="Cave">
             Cave
           </option>
@@ -94,6 +101,9 @@ const UserPage: NextPage<Props> = ({ tournaments, trainerData, roster }) => {
           </option>
           <option style={{ backgroundColor: "whitesmoke" }} value="Alchemy">
             Alchemy
+          </option>
+          <option style={{ backgroundColor: "whitesmoke" }} value="Celestial">
+            Celestial (Ultra League){" "}
           </option>
         </Select>
 
