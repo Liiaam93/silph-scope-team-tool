@@ -74,6 +74,14 @@ export const fetchUserTournaments = async (player: string): Promise<Result> => {
           name = "Ho_oh";
         } else if (name === "Tapu Fini") {
           name = "Tapu_Fini";
+        } else if (name === "Mega Charizard X") {
+          name = "Charizard_Mega_X";
+        } else if (name === "Mega Charizard Y") {
+          name = "Charizard_Mega_Y";
+        } else if (name.includes("Mega")) {
+          let len = name.length;
+          (name = name.slice(5)), len;
+          name = name + "_Mega";
         }
 
         const image: string = $(el).find("img").attr("src") || "";
