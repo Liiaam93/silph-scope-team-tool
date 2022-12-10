@@ -27,6 +27,7 @@ const Changelog: NextPage = () => {
             p="4"
             border="solid white 3px"
             borderRadius="5px"
+            color={"black"}
           >
             <UnorderedList pt="2px">
               <ListItem>
@@ -43,6 +44,7 @@ const Changelog: NextPage = () => {
             p="4"
             border="solid white 3px"
             borderRadius="5px"
+            color={"black"}
           >
             <UnorderedList pt="2px">
               <ListItem>
@@ -62,6 +64,7 @@ const Changelog: NextPage = () => {
             p="4"
             border="solid white 3px"
             borderRadius="5px"
+            color={"black"}
           >
             <UnorderedList pt="2px">
               <ListItem>
@@ -84,6 +87,7 @@ const Changelog: NextPage = () => {
             p="4"
             border="solid white 3px"
             borderRadius="5px"
+            color={"black"}
           >
             <UnorderedList pt="2px">
               <ListItem>
@@ -104,6 +108,7 @@ const Changelog: NextPage = () => {
             p="4"
             border="solid white 3px"
             borderRadius="5px"
+            color={"black"}
           >
             <UnorderedList pt="2px">
               <ListItem>Added option to copy / export entire roster</ListItem>
@@ -119,6 +124,7 @@ const Changelog: NextPage = () => {
             p="4"
             border="solid white 3px"
             borderRadius="5px"
+            color={"black"}
           >
             <UnorderedList pt="2px">
               <ListItem>Added option to filter by League</ListItem>
@@ -148,6 +154,7 @@ const Changelog: NextPage = () => {
             p="4"
             border="solid white 3px"
             borderRadius="5px"
+            color={"black"}
           >
             <UnorderedList pt="2px">
               <ListItem>
