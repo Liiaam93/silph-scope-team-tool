@@ -15,9 +15,29 @@ const Changelog: NextPage = () => {
           minH="40vh"
           w="90vh"
         >
-          <Heading alignSelf="center" fontSize="2xl">
+          <Heading alignSelf="center" fontSize="2xl" color={"black"}>
             <Center> Updates: </Center>
           </Heading>
+
+          <Heading fontSize="l" color="slategrey" fontStyle="italic">
+            13.12.2022
+          </Heading>
+          <Box
+            mt="3px"
+            bg="yellow.100"
+            p="4"
+            border="solid white 3px"
+            borderRadius="5px"
+            color={"black"}
+          >
+            <UnorderedList pt="2px">
+              <ListItem>
+                Quick fix for new faction metas, updated moves & fixed bugs with
+                mega-pokemon, and possibly fixed the UL team copy bug...?
+              </ListItem>
+            </UnorderedList>
+          </Box>
+
           <Heading fontSize="l" color="slategrey" fontStyle="italic">
             15.09.2022
           </Heading>

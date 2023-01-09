@@ -78,7 +78,7 @@ export const fetchUserTournaments = async (player: string): Promise<Result> => {
           name = "Charizard_Mega_X";
         } else if (name === "Mega Charizard Y") {
           name = "Charizard_Mega_Y";
-        } else if (name.includes("Mega")) {
+        } else if (name.includes("Mega ")) {
           let len = name.length;
           (name = name.slice(5)), len;
           name = name + "_Mega";

@@ -10,12 +10,12 @@ const fonts = {
   "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "sans-serif"`,
 };
 
-const breakpoints = createBreakpoints({
-  sm: "40em",
-  md: "52em",
-  lg: "64em",
-  lg: "62em",
-});
+const breakpoints = {
+  sm: "32em",
+  md: "48em",
+  lg: "56em",
+  xl: "64em",
+};
 
 const overrides = {
   ...chakraTheme,
