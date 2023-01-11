@@ -13,7 +13,7 @@ const TrainerContainer: FunctionComponent<TrainerStats> = ({ trainerData }) => {
     <>
       <Flex
         m="auto"
-        mt="10px"
+        mt={["6vh", "8vh", "6vh"]}
         align="center"
         w="fit-content"
         border="1px black solid"

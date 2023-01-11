@@ -50,7 +50,8 @@ export const fetchUserTournaments = async (player: string): Promise<Result> => {
           .replace(" (Hero of Many Battles)", "_Hero")
           .replace(" (Therian Forme)", "_Therian")
           .replace(" (Origin Forme)", "_Origin")
-          .replace("Porygon-Z", "Porygon_Z");
+          .replace("Porygon-Z", "Porygon_Z")
+          .replace(" (Average Size", "_Average");
 
         if (name.includes("Galarian")) {
           let len = name.length;

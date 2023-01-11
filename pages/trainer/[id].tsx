@@ -37,7 +37,8 @@ const UserPage: NextPage<Props> = ({ tournaments, trainerData, roster }) => {
           onChange={(e) => setLeagueFilter(e.target.value)}
           defaultValue={""}
           placeholder="All Leagues"
-          _placeholder={{ color: "grey" }}
+          color={"black"}
+          _placeholder={{ color: "black" }}
         >
           <option
             style={{ backgroundColor: "whitesmoke", fontStyle: "italic" }}
