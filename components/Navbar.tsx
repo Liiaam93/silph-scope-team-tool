@@ -1,9 +1,8 @@
 import { NextPage } from "next";
-import { HStack, Text, Flex, Box } from "@chakra-ui/layout";
+import { HStack, Box } from "@chakra-ui/layout";
 import { Select } from "@chakra-ui/select";
 import { Button } from "@chakra-ui/button";
 import { Input } from "@chakra-ui/input";
-import { useState } from "react";
 import { useRouter } from "next/router";
 import { useRecoilState } from "recoil";
 import { Link } from "@chakra-ui/react";
@@ -16,8 +15,6 @@ const Navbar: NextPage = () => {
   const router = useRouter();
   const [trainerName, setTrainerName] = useRecoilState(trainerNameState);
   const [squadID, setSquadID] = useRecoilState(factionNameState);
-  const [trainerData, setTrainerData] = useState([]);
-  const [squadData, setSquadData] = useState([]);
 
   return (
     <HStack
@@ -54,9 +51,9 @@ const Navbar: NextPage = () => {
             Choose a Team
           </option>
 
-          {Object.keys(factions).map((key) => (
-            <option key={key} value={key}>
-              {factions[key]}
+          {factions.map((f) => (
+            <option key={f.id} value={f.id}>
+              {f.name}
             </option>
           ))}
         </Select>

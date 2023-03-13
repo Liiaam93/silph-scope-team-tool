@@ -12,6 +12,9 @@ import { Primeval } from "../../model/PVPoke/Primeval";
 import { Timeless } from "../../model/PVPoke/Timeless";
 import { Ember } from "../../model/PVPoke/Ember";
 import { Vanguard } from "../../model/PVPoke/Vanguard";
+import { Justicar } from "../../model/PVPoke/Justicar";
+import { Arcana } from "../../model/PVPoke/Arcana";
+import { Catacomb } from "../../model/PVPoke/Catacomb";
 
 export interface PokemonStats {
   name: string;
@@ -45,6 +48,9 @@ const leaguePaths = {
   Celestial: Celestial,
   Ember: Ember,
   Vanguard: Vanguard,
+  Justicar: Justicar,
+  Catacomb: Catacomb,
+  Arcana: Arcana,
 };
 
 // export const getMoveData = async (league: League): Promise<PokemonStats[]> => {
@@ -88,6 +94,12 @@ export const getMoveData = (league: string) => {
     data = Ember;
   } else if (league === "Vanguard" || league.includes("Vanguard")) {
     data = Vanguard;
+  } else if (league === "Arcana" || league.includes("Arcana")) {
+    data = Arcana;
+  } else if (league === "Catacomb" || league.includes("Catacomb")) {
+    data = Catacomb;
+  } else if (league === "Justicar" || league.includes("Justicar")) {
+    data = Justicar;
   } else {
     data = Great;
   }

@@ -52,28 +52,37 @@ const UserPage: NextPage<Props> = ({ tournaments, trainerData, roster }) => {
           >
             Great League
           </option>
-
-          <option
-            style={{ backgroundColor: "whitesmoke" }}
-            value="Ultra League"
-          >
-            Ultra League
+          <option style={{ backgroundColor: "whitesmoke" }} value="Justicar">
+            Justicar
           </option>
+
           <option
             style={{ backgroundColor: "whitesmoke" }}
             value="Master League"
           >
             Master League
           </option>
+          <option style={{ backgroundColor: "whitesmoke" }} value="Arcana">
+            Arcana
+          </option>
+          <option style={{ backgroundColor: "whitesmoke" }} value="Catacomb">
+            Catacomb
+          </option>
+          <option style={{ backgroundColor: "whitesmoke" }} disabled>
+            Old Cups
+          </option>
+          <option
+            style={{ backgroundColor: "whitesmoke" }}
+            value="Ultra League"
+          >
+            Ultra League
+          </option>
+
           <option style={{ backgroundColor: "whitesmoke" }} value="Ember">
             Ember
           </option>
           <option style={{ backgroundColor: "whitesmoke" }} value="Vanguard">
             Vanguard
-          </option>
-
-          <option style={{ backgroundColor: "whitesmoke" }} disabled>
-            Old Cups
           </option>
 
           <option style={{ backgroundColor: "whitesmoke" }} value="Primeval">

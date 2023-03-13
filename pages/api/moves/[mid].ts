@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getMoveData } from "../../../utils/api/pvpoke";
 
-type League = "Great" | "Twilight" | "Master" | "Ultra" | "Comet";
+type League = "Great" | "Justicar" | "Master" | "Arcana" | "Catacomb";
 
 const handlers = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
