@@ -86,8 +86,9 @@ const Navbar: NextPage = () => {
             cursor={"pointer"}
             _hover={{ backgroundColor: "gold" }}
             onClick={() => router.push(`/trainer/${trainerName}`)}
-            children={<SearchIcon />}
-          />
+          >
+            <SearchIcon />
+          </InputRightAddon>
         </InputGroup>
       </HStack>
     </HStack>
