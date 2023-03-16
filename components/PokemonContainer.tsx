@@ -47,11 +47,12 @@ const PokemonContainer: FunctionComponent<Pokemon> = ({ ...pokemon }) => {
         alignItems="center"
         minW="150px"
         key={pokemon.name}
+        color="black"
       >
         <Box
           mt="6px"
           borderRadius="lg"
-          border="1px"
+          border="1px white"
           w="max"
           backgroundImage={backgroundTexture}
         >

@@ -65,7 +65,7 @@ const Roster: FunctionComponent<PokemonArray[]> = ({ ...roster }) => {
           return null;
         })}
 
-        <Button bg="gold" m="auto" onClick={onOpen}>
+        <Button bg="gold" m="auto" color="black" onClick={onOpen}>
           Roster
         </Button>
       </Flex>

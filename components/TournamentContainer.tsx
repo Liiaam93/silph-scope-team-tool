@@ -39,7 +39,7 @@ const TournamentContainer: FunctionComponent<Props> = ({ tournament }) => {
       // backgroundImage={"/ultra-ball.jpg"}
       borderRadius="lg"
     >
-      <Box w="fit-content" m="auto" textAlign="center">
+      <Box w="fit-content" m="auto" textAlign="center" color="black">
         <Text fontSize="xl">{tournament.league}</Text>
         <Text>{tournament.bout}</Text>
       </Box>
@@ -66,6 +66,7 @@ const TournamentContainer: FunctionComponent<Props> = ({ tournament }) => {
             background: "white",
             color: "black",
           }}
+          color="black"
           onClick={() => copyPVP(copyArray.join(""))}
           mb="3"
         >
