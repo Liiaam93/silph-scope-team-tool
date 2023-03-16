@@ -20,6 +20,7 @@ const Navbar: NextPage = () => {
   useEffect(() => {
     squadID === "default" ? "" : router.push(`/faction/${squadID}`);
     setSquadID("default");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [squadID]);
 
   return (
