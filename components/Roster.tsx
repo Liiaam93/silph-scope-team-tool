@@ -71,7 +71,7 @@ const Roster: FunctionComponent<PokemonArray[]> = ({ ...roster }) => {
       </Flex>
       <Modal size={"5xl" || "md"} isOpen={isOpen} onClose={onClose}>
         <ModalOverlay w="100vw" />
-        <ModalContent bg="white">
+        <ModalContent bg="white" color="black">
           <ModalHeader textAlign="center">Roster</ModalHeader>
           <ModalCloseButton />
           <Button
@@ -108,8 +108,10 @@ const Roster: FunctionComponent<PokemonArray[]> = ({ ...roster }) => {
                         />
                       )}
 
-                      <Text fontSize="xs">{roster[i].name}</Text>
-                      <Text>{roster[i].count}</Text>
+                      <Text color="black" fontSize="xs">
+                        {roster[i].name}
+                      </Text>
+                      <Text color="black">{roster[i].count}</Text>
                     </VStack>
                   )
               )}
@@ -117,7 +119,7 @@ const Roster: FunctionComponent<PokemonArray[]> = ({ ...roster }) => {
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
+            <Button colorScheme="red" mr={3} onClick={onClose}>
               Close
             </Button>
           </ModalFooter>

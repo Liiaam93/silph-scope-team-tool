@@ -36,7 +36,6 @@ const TournamentContainer: FunctionComponent<Props> = ({ tournament }) => {
       mt="10px"
       borderWidth="1px"
       bg="darkgrey"
-      // backgroundImage={"/ultra-ball.jpg"}
       borderRadius="lg"
     >
       <Box w="fit-content" m="auto" textAlign="center" color="black">
@@ -56,7 +55,7 @@ const TournamentContainer: FunctionComponent<Props> = ({ tournament }) => {
           </>
         ))}
       </Flex>
-      <Text align="center">{`Score:
+      <Text color="black" align="center">{`Score:
         
          ${tournament.wins} -  ${tournament.losses}`}</Text>
       <Center>
