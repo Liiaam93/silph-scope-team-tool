@@ -53,14 +53,18 @@ const Roster: FunctionComponent<PokemonArray[]> = ({ ...roster }) => {
           ) {
             counter++;
             return (
-              <Image key={keyName} src={roster[i].sprite} w="70px" h="70px" />
+              <Image
+                alt={roster[i].name}
+                key={keyName}
+                src={roster[i].sprite}
+                w="70px"
+                h="70px"
+              />
             );
           }
           return null;
         })}
-        {/* <Image m="auto" w="70px" h="70px" src={roster[0].sprite} />
-        <Image m="auto" w="70px" h="70px" src={roster[1].sprite} />
-        <Image m="auto" w="70px" h="70px" src={roster[2].sprite} /> */}
+
         <Button bg="gold" m="auto" onClick={onOpen}>
           Roster
         </Button>
@@ -103,11 +107,7 @@ const Roster: FunctionComponent<PokemonArray[]> = ({ ...roster }) => {
                           alt={roster[i].name}
                         />
                       )}
-                      {/* <Image
-                        bg={"orange"}
-                        src={roster[i].sprite}
-                        alt={roster[i].name}
-                      /> */}
+
                       <Text fontSize="xs">{roster[i].name}</Text>
                       <Text>{roster[i].count}</Text>
                     </VStack>
