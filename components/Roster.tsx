@@ -28,6 +28,8 @@ const Roster: FunctionComponent<PokemonArray[]> = ({ ...roster }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [leagueFilter, setLeagueFilter] = useRecoilState(leagueFilterState);
 
+  let counter = 0;
+
   const copyArray = Object.keys(roster).map((mon, i) =>
     roster[i].tLeague.includes(leagueFilter) || !leagueFilter
       ? roster[i].name +
@@ -43,9 +45,26 @@ const Roster: FunctionComponent<PokemonArray[]> = ({ ...roster }) => {
 
   return (
     <>
-      <Button bg="gold" m="auto" mt="10px" maxW="50%" onClick={onOpen}>
-        View Player Roster
-      </Button>
+      <Flex border="solid white 2px" borderRadius="10" m="auto" paddingX="2">
+        {Object.keys(roster).map((keyName, i) => {
+          if (
+            counter < 3 &&
+            (roster[i].tLeague.includes(leagueFilter) || !leagueFilter)
+          ) {
+            counter++;
+            return (
+              <Image key={keyName} src={roster[i].sprite} w="70px" h="70px" />
+            );
+          }
+          return null;
+        })}
+        {/* <Image m="auto" w="70px" h="70px" src={roster[0].sprite} />
+        <Image m="auto" w="70px" h="70px" src={roster[1].sprite} />
+        <Image m="auto" w="70px" h="70px" src={roster[2].sprite} /> */}
+        <Button bg="gold" m="auto" onClick={onOpen}>
+          Roster
+        </Button>
+      </Flex>
       <Modal size={"5xl" || "md"} isOpen={isOpen} onClose={onClose}>
         <ModalOverlay w="100vw" />
         <ModalContent bg="white">
